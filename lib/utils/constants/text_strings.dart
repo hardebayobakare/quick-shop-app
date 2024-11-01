@@ -5,7 +5,7 @@ class CustomTextStrings {
 
   // -- OnBoarding Texts
   static const String onBoardingTitle1 = 'Welcome to the App';
-  static const String onBoardingTitle2 = 'FSelect Payment Method';
+  static const String onBoardingTitle2 = 'Select Payment Method';
   static const String onBoardingTitle3 = 'Deliver at your Door step';
 
   static const String onBoardingSubtitle1 = 'Get your groceries delivered in less than 1 hour';

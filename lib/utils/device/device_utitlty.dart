@@ -49,7 +49,7 @@ class DeviceUtils {
   } 
 
   static double getBottomNavigartionBarHeight() {
-    return MediaQuery.of(Get.context!).padding.bottom;
+    return kBottomNavigationBarHeight;
   }
 
   static double getAppBarHeight() {
