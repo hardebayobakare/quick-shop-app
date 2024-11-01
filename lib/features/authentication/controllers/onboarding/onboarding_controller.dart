@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:quick_shop_app/features/authentication/screens/login/login.dart';
 
 class OnBoardingController extends GetxController{
   static OnBoardingController get instance => Get.find();
@@ -17,8 +18,7 @@ class OnBoardingController extends GetxController{
 
   void nextPage() {
     if(currentPageIndex.value == 2){
-      // Get.to(LoginScreen());
-      print('Navigate to login screen');
+      Get.offAll(const LoginScreen());
     }else{
       currentPageIndex.value++;
       pageController.nextPage(duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
@@ -26,7 +26,6 @@ class OnBoardingController extends GetxController{
   }
 
   void skipPage() {
-    // Get.to(LoginScreen());
-    print('Navigate to login screen');
+    Get.offAll(const LoginScreen());
   }
 }
