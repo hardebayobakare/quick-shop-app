@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quick_shop_app/common/widgets/primary_header_container.dart';
+import 'package:quick_shop_app/features/authentication/screens/home/widget/home_appbar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -13,7 +14,7 @@ class HomeScreen extends StatelessWidget {
             CustomPrimaryHeaderContainer(
               child: Column(
                 children: [
-                  
+                  CustomHomeAppBar()
                 ],
               )
             )
@@ -22,4 +23,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
+
+
 
