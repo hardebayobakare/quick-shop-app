@@ -13,5 +13,9 @@ class CustomImages {
   static const String onBoardingImage1 = 'assets/images/on_boarding_images/megaphone.gif';
   static const String onBoardingImage3 = 'assets/images/on_boarding_images/delivery-truck.gif';
   static const String onBoardingImage2 = 'assets/images/on_boarding_images/grocery.gif';
+
+  // -- Verification Images
+  static const String emailVerification = 'assets/images/animations/verify-profile.gif';
+  static const String successVerification = 'assets/images/animations/verification-success.gif';
   
 }

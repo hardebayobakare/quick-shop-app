@@ -41,6 +41,12 @@ class CustomTextStrings {
   static const String forgetPassowrdSubtitle = 'Enter your email to reset your password';
   static const String privacyPolicy = 'Privacy Policy';
   static const String and = 'and';
+  static const String confirmEmail = 'Verify your email address';
+  static const String confirmEmailSubtitle = 'Congratulations! You have successfully signed up. Please verify your email address to continue.';
+  static const String toContinue = "Continue";
+  static const String yourAccountCreatedTitle = 'Your account has been created';
+  static const String yourAccountCreatedSubtitle = 'Welcome to Quick Shop. Your account has been created successfully.';
+
 
 
   // -- Home
