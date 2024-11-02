@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:quick_shop_app/features/authentication/screens/signup/signup.dart';
 import 'package:quick_shop_app/utils/constants/sizes.dart';
 import 'package:quick_shop_app/utils/constants/text_strings.dart';
 
@@ -18,6 +20,9 @@ class CustomLoginForm extends StatelessWidget {
             //Email
             TextFormField(
               decoration: const InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                ),
                 prefixIcon: Icon(Iconsax.direct_right),
                 labelText: CustomTextStrings.email,
               ),
@@ -26,6 +31,9 @@ class CustomLoginForm extends StatelessWidget {
             //Password
             TextFormField(
               decoration: const InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                ),
                 prefixIcon: Icon(Iconsax.password_check),
                 labelText: CustomTextStrings.password,
                 suffixIcon: Icon(Iconsax.eye_slash),
@@ -63,8 +71,8 @@ class CustomLoginForm extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: OutlinedButton(
-                onPressed: () {},
-                child: const Text(CustomTextStrings.signIn),
+                onPressed: () => Get.to(() => const SignupScreen()),
+                child: const Text(CustomTextStrings.createAccount),
               ),
             ),
             const SizedBox(height: CustomSizes.spaceBtwSections),

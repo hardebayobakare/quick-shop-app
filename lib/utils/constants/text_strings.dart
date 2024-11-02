@@ -15,6 +15,7 @@ class CustomTextStrings {
   // -- Authentication Form Texts
   static const String firstName = 'First Name';
   static const String lastName = 'Last Name';
+  static const String userName = 'Username';
   static const String email = 'Email';
   static const String password = 'Password';
   static const String confirmPassword = 'Confirm Password';
@@ -35,8 +36,11 @@ class CustomTextStrings {
   // -- Authentication Heading Texts
   static const String loginTitle = 'Welcome Back';
   static const String loginSubtitle = 'Discover limitless choices and unmatched convenience.';
-  static const String signUpTitle = "Let's create an Account";
+  static const String signUpTitle = "Let's create your Account";
   static const String forgetPassowrdTitle = 'Forgot password';
+  static const String forgetPassowrdSubtitle = 'Enter your email to reset your password';
+  static const String privacyPolicy = 'Privacy Policy';
+  static const String and = 'and';
 
 
   // -- Home

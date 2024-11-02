@@ -26,13 +26,10 @@ class LoginScreen extends StatelessWidget {
 
               // Divider
               CustomFormDivider(dividerText: CustomTextStrings.orSignInWith),
-
               SizedBox(height: CustomSizes.spaceBtwSections),
 
               // Footer
               CustomSocialButton()
-
-
             ],
           ),
         )
