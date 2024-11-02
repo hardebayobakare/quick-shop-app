@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:quick_shop_app/features/authentication/screens/password_configuration/forget_password.dart';
 import 'package:quick_shop_app/features/authentication/screens/signup/signup.dart';
 import 'package:quick_shop_app/utils/constants/sizes.dart';
 import 'package:quick_shop_app/utils/constants/text_strings.dart';
@@ -53,7 +54,7 @@ class CustomLoginForm extends StatelessWidget {
                   ],
                 ),
                 // Forgot password
-                TextButton(onPressed: () {}, child: const Text(CustomTextStrings.forgotPassword))
+                TextButton(onPressed: () => Get.to(const ForgetPassword()), child: const Text(CustomTextStrings.forgotPassword))
               ],
             ),
             const SizedBox(height: CustomSizes.spaceBtwSections),

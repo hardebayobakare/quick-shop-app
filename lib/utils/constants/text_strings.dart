@@ -32,6 +32,8 @@ class CustomTextStrings {
   static const String verificationCode = 'Verification Code';
   static const String resendEmail = 'Resend Email';
   static const String resendEmailIn = 'Resend email in';
+  static const String submit = 'Submit';
+  static const String done = 'Done';
 
   // -- Authentication Heading Texts
   static const String loginTitle = 'Welcome Back';
@@ -46,6 +48,8 @@ class CustomTextStrings {
   static const String toContinue = "Continue";
   static const String yourAccountCreatedTitle = 'Your account has been created';
   static const String yourAccountCreatedSubtitle = 'Welcome to Quick Shop. Your account has been created successfully.';
+  static const String changeYourPasswordTitle = 'Password Reset Email Sent';
+  static const String changeYourPasswordSubtitle = 'Your account security is important to us. We have sent a secure link to your email address. Please follow the instructions in the email to reset your password.';
 
 
 
