@@ -56,4 +56,5 @@ class CustomTextStrings {
   // -- Home
   static const String homeAppbarTitle = 'Good day for shopping';
   static const String homeAppbarSubtitle = 'Adebayo Bakare';
+  static const String popularCategories = 'Popular Categories';
 }
