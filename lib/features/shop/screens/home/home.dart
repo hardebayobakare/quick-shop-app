@@ -3,9 +3,11 @@ import 'package:iconsax/iconsax.dart';
 import 'package:quick_shop_app/common/widgets/primary_header_container.dart';
 import 'package:quick_shop_app/common/widgets/search_container.dart';
 import 'package:quick_shop_app/common/widgets/section_heading.dart';
-import 'package:quick_shop_app/features/authentication/screens/home/widget/home_appbar.dart';
-import 'package:quick_shop_app/features/authentication/screens/home/widget/home_category.dart';
+import 'package:quick_shop_app/features/shop/screens/home/widget/home_appbar.dart';
+import 'package:quick_shop_app/features/shop/screens/home/widget/home_category.dart';
+import 'package:quick_shop_app/features/shop/screens/home/widget/home_slider.dart';
 import 'package:quick_shop_app/utils/constants/colors.dart';
+import 'package:quick_shop_app/utils/constants/image_strings.dart';
 import 'package:quick_shop_app/utils/constants/sizes.dart';
 import 'package:quick_shop_app/utils/constants/text_strings.dart';
 
@@ -18,6 +20,7 @@ class HomeScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            // Header
             CustomPrimaryHeaderContainer(
               child: Column(
                 children: [
@@ -54,9 +57,24 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ],
               )
+            ),
+
+            // Body
+            Padding(
+              padding: EdgeInsets.all(CustomSizes.defaultSpace),
+              child: CustomHomeSlider(
+                banners: [
+                  CustomImages.banner1,
+                  CustomImages.banner2,
+                  CustomImages.banner3,
+                ],
+              )            
             )
+
         ],),
       ),
     );
+
   }
 }
+

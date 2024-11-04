@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:quick_shop_app/features/authentication/screens/home/home.dart';
+import 'package:quick_shop_app/features/shop/screens/home/home.dart';
 import 'package:quick_shop_app/utils/constants/colors.dart';
 import 'package:quick_shop_app/utils/helpers/helper_functions.dart';
 

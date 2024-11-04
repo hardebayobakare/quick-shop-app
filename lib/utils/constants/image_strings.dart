@@ -28,5 +28,10 @@ class CustomImages {
   static const String furnitureIcon = "assets/icons/categories/icons8-dining-chair-64.png";
   static const String jeweleryIcon = "assets/icons/categories/icons8-sparkling-diamond-64.png";
   static const String electronicsIcon = "assets/icons/categories/icons8-smartphone-64.png";
+
+  // -- Banner Images
+  static const String banner1 = 'assets/images/banners/promo-banner-1.jpg';
+  static const String banner2 = 'assets/images/banners/promo-banner-2.jpg';
+  static const String banner3 = 'assets/images/banners/promo-banner-3.jpg';
   
 }

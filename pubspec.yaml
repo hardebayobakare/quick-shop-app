@@ -19,6 +19,7 @@ dependencies:
   url_launcher: ^6.1.12
   flutter_native_splash: ^2.4.2
   smooth_page_indicator: ^1.2.0+3
+  carousel_slider: ^5.0.0
 
   # Icons
   cupertino_icons: ^1.0.8
@@ -46,6 +47,7 @@ flutter:
     - assets/logos/
     - assets/images/on_boarding_images/
     - assets/images/animations/
+    - assets/images/banners/
     - assets/icons/categories/
 
   #------------------fonts-------------------#
