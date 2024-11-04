@@ -51,7 +51,19 @@ class HomeScreen extends StatelessWidget {
                         SizedBox(height: CustomSizes.spaceBtwItems),
 
                         // Categories
-                        CustomHomeCategory()
+                        CustomHomeCategory(
+                          categories: [
+                            CustomImages.sportIcon,
+                            CustomImages.electronicsIcon,
+                            CustomImages.clothIcon,
+                            CustomImages.cosmeticsIcon,
+                            CustomImages.shoeIcon,
+                            CustomImages.animalIcon,
+                            CustomImages.furnitureIcon,
+                            CustomImages.animalIcon,
+                            CustomImages.jeweleryIcon,
+                          ],
+                        )
                       ],
                     ),
                   ),

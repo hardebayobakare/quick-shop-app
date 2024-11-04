@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:quick_shop_app/common/widgets/vertical_image_text.dart';
-import 'package:quick_shop_app/utils/constants/image_strings.dart';
 
 class CustomHomeCategory extends StatelessWidget {
   const CustomHomeCategory({
     super.key,
+    required this.categories,
   });
+
+  final List<String> categories;
 
   @override
   Widget build(BuildContext context) {
@@ -13,14 +15,15 @@ class CustomHomeCategory extends StatelessWidget {
       height: 80,
       child: ListView.builder(
         shrinkWrap: true,
-        itemCount: 16,
+        itemCount: categories.length,
         scrollDirection: Axis.horizontal,
         itemBuilder: (_, index) {
           return CustomVerticalImageText(
-            image: CustomImages.shoeIcon,
-            title: 'Shoes',
+            image: categories[index],
+            title: 'Category $index',
             onTap: () {},
           );
+          
         },
       ),
     );
