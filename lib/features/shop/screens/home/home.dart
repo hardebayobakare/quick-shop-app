@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:quick_shop_app/common/widgets/grid_layout.dart';
 import 'package:quick_shop_app/common/widgets/primary_header_container.dart';
+import 'package:quick_shop_app/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:quick_shop_app/common/widgets/search_container.dart';
 import 'package:quick_shop_app/common/widgets/section_heading.dart';
 import 'package:quick_shop_app/features/shop/screens/home/widget/home_appbar.dart';
@@ -16,12 +18,12 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
             // Header
-            CustomPrimaryHeaderContainer(
+            const CustomPrimaryHeaderContainer(
               child: Column(
                 children: [
                   // App Bar
@@ -73,15 +75,26 @@ class HomeScreen extends StatelessWidget {
 
             // Body
             Padding(
-              padding: EdgeInsets.all(CustomSizes.defaultSpace),
-              child: CustomHomeSlider(
-                banners: [
-                  CustomImages.banner1,
-                  CustomImages.banner2,
-                  CustomImages.banner3,
+              padding: const EdgeInsets.all(CustomSizes.defaultSpace),
+              child: Column(
+                children: [
+                  const CustomHomeSlider(
+                    banners: [
+                      CustomImages.banner1,
+                      CustomImages.banner2,
+                      CustomImages.banner3,
+                    ],
+                  ),
+                  const SizedBox(height: CustomSizes.spaceBtwSections),
+                  CustomGridLayout(
+                    itemCount: 2,
+                    itemBuilder: (_, index) => const CustomProductCardVertical(),
+                  ),
                 ],
               )            
-            )
+            ),
+
+            
 
         ],),
       ),
@@ -89,4 +102,6 @@ class HomeScreen extends StatelessWidget {
 
   }
 }
+
+
 
