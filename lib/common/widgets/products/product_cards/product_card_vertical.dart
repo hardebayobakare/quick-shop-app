@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:quick_shop_app/common/styles/shadow.dart';
+import 'package:quick_shop_app/common/widgets/brand_container.dart';
 import 'package:quick_shop_app/common/widgets/circular_icon.dart';
 import 'package:quick_shop_app/common/widgets/products/product_cards/product_price_text.dart';
 import 'package:quick_shop_app/common/widgets/products/product_cards/product_title_text.dart';
@@ -28,6 +29,7 @@ class CustomProductCardVertical extends StatelessWidget {
           color: dark ? CustomColors.darkGrey : CustomColors.white,
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Thumbnail, Wishlist and Discount Tag
             CustomRoundedContainer(
@@ -70,51 +72,49 @@ class CustomProductCardVertical extends StatelessWidget {
               ),
             ),
             const SizedBox(height: CustomSizes.spaceBtwItems / 2),
+            
       
             // Product Details
-            Padding(
-              padding: const EdgeInsets.only(left: CustomSizes.sm),
+            const Padding(
+              padding: EdgeInsets.only(left: CustomSizes.sm),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // Product Name
-                  const CustomProductTitleText(
+                  CustomProductTitleText(
                     title: 'Nike Air Max 270',
                     smallSize: true,
                   ),
-                  const SizedBox(height: CustomSizes.spaceBtwItems / 2),
-                  Row(
-                    children: [
-                      Text('Nike', overflow: TextOverflow.ellipsis, maxLines: 1, style: Theme.of(context).textTheme.labelMedium),
-                      const SizedBox(width: CustomSizes.xs),
-                      const Icon(Iconsax.verify5, color: CustomColors.primaryColor, size: CustomSizes.iconXs),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const CustomProductPriceText(
-                        price: '120.99',
-                        isLarge: false,
-                      ),
-                      Container (
-                        decoration: const BoxDecoration(
-                          color: CustomColors.dark,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(CustomSizes.cardRadiusMd),
-                            bottomRight: Radius.circular(CustomSizes.productImageRadius),
-                          ),
-                        ),
-                        child: const SizedBox(
-                          width: CustomSizes.iconLg * 1.2,
-                          height: CustomSizes.iconLg * 1.2,
-                          child: Center(child: Icon(Iconsax.add, color: CustomColors.white))),
-                      )
-      
-                    ],
-                  )
+                  SizedBox(height: CustomSizes.spaceBtwItems / 2),
+                  CustomBrandTitleTextWithVerification(brandName: "Nike", isVerified: true)
                 ],
               ),
+            ),
+            const Spacer(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Padding(
+                  padding: EdgeInsets.only(left: CustomSizes.sm),
+                  child: CustomProductPriceText(
+                    price: '120.99',
+                  ),
+                ),
+                Container (
+                  decoration: const BoxDecoration(
+                    color: CustomColors.dark,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(CustomSizes.cardRadiusMd),
+                      bottomRight: Radius.circular(CustomSizes.productImageRadius),
+                    ),
+                  ),
+                  child: const SizedBox(
+                    width: CustomSizes.iconLg * 1.2,
+                    height: CustomSizes.iconLg * 1.2,
+                    child: Center(child: Icon(Iconsax.add, color: CustomColors.white))),
+                )
+
+              ],
             )
           ],
         ),

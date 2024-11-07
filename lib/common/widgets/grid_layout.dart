@@ -10,7 +10,7 @@ class CustomGridLayout extends StatelessWidget {
   });
 
   final int itemCount;
-  final double? mainAxisExtent;
+  final double mainAxisExtent;
   final Widget Function(BuildContext, int) itemBuilder;
 
   @override
@@ -20,11 +20,11 @@ class CustomGridLayout extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       padding: EdgeInsets.zero,
       itemCount: itemCount,
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount:2,
         mainAxisSpacing: CustomSizes.gridViewSpacing,
         crossAxisSpacing: CustomSizes.gridViewSpacing,
-        mainAxisExtent: 288,
+        mainAxisExtent: mainAxisExtent,
       ) ,
       itemBuilder: itemBuilder,
     );

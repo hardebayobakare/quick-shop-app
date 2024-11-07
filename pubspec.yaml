@@ -50,6 +50,8 @@ flutter:
     - assets/images/banners/
     - assets/images/products/
     - assets/icons/categories/
+    - assets/icons/brands/
+
 
   #------------------fonts-------------------#
   fonts:

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:quick_shop_app/utils/constants/colors.dart';
 import 'package:quick_shop_app/utils/constants/sizes.dart';
 
 class CustomRoundedImage extends StatelessWidget {
@@ -10,7 +9,7 @@ class CustomRoundedImage extends StatelessWidget {
     required this.imageUrl,
     this.applyImageRadius = true,
     this.border,
-    this.backgroundColor = CustomColors.light,
+    this.backgroundColor,
     this.fit = BoxFit.cover,
     this.padding,
     this.isNetworkImage = false,
@@ -22,7 +21,7 @@ class CustomRoundedImage extends StatelessWidget {
   final String imageUrl;
   final bool applyImageRadius;
   final BoxBorder? border;
-  final Color backgroundColor;
+  final Color? backgroundColor;
   final BoxFit? fit;
   final EdgeInsetsGeometry? padding;
   final bool isNetworkImage;

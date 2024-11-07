@@ -48,6 +48,7 @@ class CustomSizes {
   static const double productImageSize = 120.0;
   static const double productImageRadius = 16.0;
   static const double productImageHeight = 160.0;
+  static const double brandContainerRadius = 100.0;
 
   // Input field
   static const double inputFieldRadius = 12.0;

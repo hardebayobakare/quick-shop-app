@@ -86,6 +86,11 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: CustomSizes.spaceBtwSections),
+                  CustomSectionHeading(
+                    title: CustomTextStrings.popularProducts,
+                    onButtonPressed: () {},
+                  ),
+                  const SizedBox(height: CustomSizes.spaceBtwItems),
                   CustomGridLayout(
                     itemCount: 2,
                     itemBuilder: (_, index) => const CustomProductCardVertical(),
