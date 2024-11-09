@@ -65,7 +65,8 @@ class HomeScreen extends StatelessWidget {
                             CustomImages.animalIcon,
                             CustomImages.jeweleryIcon,
                           ],
-                        )
+                        ),
+                        SizedBox(height: CustomSizes.spaceBtwSections),
                       ],
                     ),
                   ),

@@ -124,5 +124,8 @@ class CustomImages {
   static const String hermanMillerLogo = "assets/icons/brands/herman-miller-logo.png";
   static const String ikeaLogo = "assets/icons/brands/ikea_logo.png";
   static const String acerlogo = "assets/icons/brands/acer_logo.png";
+
+  // -- Profile Images
+  static const String user = "assets/images/content/user.png";
   
 }
