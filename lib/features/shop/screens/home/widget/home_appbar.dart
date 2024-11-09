@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quick_shop_app/common/widgets/app_bar.dart';
-import 'package:quick_shop_app/common/widgets/cart.dart';
+import 'package:quick_shop_app/common/widgets/products/carts/cart.dart';
 import 'package:quick_shop_app/utils/constants/colors.dart';
 import 'package:quick_shop_app/utils/constants/text_strings.dart';
 
