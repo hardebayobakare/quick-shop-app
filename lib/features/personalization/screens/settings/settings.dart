@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:quick_shop_app/common/widgets/app_bar.dart';
 import 'package:quick_shop_app/common/widgets/primary_header_container.dart';
 import 'package:quick_shop_app/common/widgets/section_heading.dart';
 import 'package:quick_shop_app/common/widgets/settings_menu_tile.dart';
 import 'package:quick_shop_app/common/widgets/user_profile_tile.dart';
+import 'package:quick_shop_app/features/personalization/screens/profile/profile.dart';
 import 'package:quick_shop_app/utils/constants/colors.dart';
 import 'package:quick_shop_app/utils/constants/sizes.dart';
 
@@ -30,7 +32,7 @@ class SettingsScreen extends StatelessWidget {
                   ),
   
                   // Profile
-                  const CustomUserProfileTile(),
+                  CustomUserProfileTile(onPressed: () => Get.to(() => const ProfileScreen()),),
                   const SizedBox(height: CustomSizes.spaceBtwSections),
                 ],
               ),
