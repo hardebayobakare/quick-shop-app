@@ -31,7 +31,7 @@ class SuccessScreen extends StatelessWidget {
               // Title and subtitle
               Text(title, style: Theme.of(context).textTheme.headlineMedium, textAlign: TextAlign.center),
               const SizedBox(height: CustomSizes.spaceBtwItems),
-              Text(CustomTextStrings.yourAccountCreatedSubtitle, style: Theme.of(context).textTheme.labelMedium, textAlign: TextAlign.center),
+              Text(subtitle, style: Theme.of(context).textTheme.labelMedium, textAlign: TextAlign.center),
               const SizedBox(height: CustomSizes.spaceBtwSections),
 
               // Button

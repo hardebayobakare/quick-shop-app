@@ -36,6 +36,7 @@ class CustomProductCardVertical extends StatelessWidget {
             // Thumbnail, Wishlist and Discount Tag
             CustomRoundedContainer(
               height: 180,
+              width: double.infinity,
               padding: const EdgeInsets.all(CustomSizes.sm),
               backgroundColor: dark ? CustomColors.dark : CustomColors.light,
               child: Stack(

@@ -8,6 +8,7 @@ import 'package:quick_shop_app/common/widgets/settings_menu_tile.dart';
 import 'package:quick_shop_app/common/widgets/user_profile_tile.dart';
 import 'package:quick_shop_app/features/personalization/screens/address/address.dart';
 import 'package:quick_shop_app/features/personalization/screens/profile/profile.dart';
+import 'package:quick_shop_app/features/shop/screens/cart/cart.dart';
 import 'package:quick_shop_app/utils/constants/colors.dart';
 import 'package:quick_shop_app/utils/constants/sizes.dart';
 
@@ -57,7 +58,7 @@ class SettingsScreen extends StatelessWidget {
                     icon: Iconsax.shopping_cart,
                     title: 'My Cart',
                     subtitle: 'Add, remove or view items in cart',
-                    onTap: () {},
+                    onTap: () => Get.to(() => const CartScreen()),
                   ),
                   CustomSettingsMenuTile(
                     icon: Iconsax.bag_tick,
