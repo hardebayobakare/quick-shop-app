@@ -6,6 +6,7 @@ import 'package:quick_shop_app/common/widgets/primary_header_container.dart';
 import 'package:quick_shop_app/common/widgets/section_heading.dart';
 import 'package:quick_shop_app/common/widgets/settings_menu_tile.dart';
 import 'package:quick_shop_app/common/widgets/user_profile_tile.dart';
+import 'package:quick_shop_app/features/personalization/screens/address/address.dart';
 import 'package:quick_shop_app/features/personalization/screens/profile/profile.dart';
 import 'package:quick_shop_app/utils/constants/colors.dart';
 import 'package:quick_shop_app/utils/constants/sizes.dart';
@@ -50,7 +51,7 @@ class SettingsScreen extends StatelessWidget {
                     icon: Iconsax.safe_home,
                     title: 'My Addresses',
                     subtitle: 'Set shipping delivery address',
-                    onTap: () {},
+                    onTap: () => Get.to(() => const AddressesScreen()),
                   ),
                   CustomSettingsMenuTile(
                     icon: Iconsax.shopping_cart,

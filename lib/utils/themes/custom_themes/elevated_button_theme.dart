@@ -11,7 +11,7 @@ class CustomElevatedButtonTheme {
       backgroundColor: CustomColors.primaryColor,
       disabledForegroundColor: Colors.grey,
       disabledBackgroundColor: Colors.grey.withOpacity(0.5),
-      side: const BorderSide(color: Colors.blue),
+      side: const BorderSide(color: CustomColors.primaryColor),
       padding: const EdgeInsets.symmetric(vertical: 18.0),
       textStyle: const TextStyle(fontSize: 16.0, color: Colors.white, fontWeight: FontWeight.w600),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),

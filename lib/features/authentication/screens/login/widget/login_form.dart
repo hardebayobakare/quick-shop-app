@@ -22,9 +22,6 @@ class CustomLoginForm extends StatelessWidget {
             //Email
             TextFormField(
               decoration: const InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
-                ),
                 prefixIcon: Icon(Iconsax.direct_right),
                 labelText: CustomTextStrings.email,
               ),
@@ -33,9 +30,6 @@ class CustomLoginForm extends StatelessWidget {
             //Password
             TextFormField(
               decoration: const InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
-                ),
                 prefixIcon: Icon(Iconsax.password_check),
                 labelText: CustomTextStrings.password,
                 suffixIcon: Icon(Iconsax.eye_slash),

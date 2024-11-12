@@ -24,9 +24,6 @@ class CustomSignUpForm extends StatelessWidget {
               child: TextFormField(
                 expands: false,
                 decoration: const InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                  ),
                   labelText: CustomTextStrings.firstName,
                   prefixIcon: Icon(Iconsax.user),
                 ),
@@ -37,9 +34,6 @@ class CustomSignUpForm extends StatelessWidget {
               child: TextFormField(
                 expands: false,
                 decoration: const InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                  ),
                   labelText: CustomTextStrings.lastName,
                   prefixIcon: Icon(Iconsax.user),
                 ),
@@ -51,9 +45,6 @@ class CustomSignUpForm extends StatelessWidget {
           TextFormField(
             expands: false,
             decoration: const InputDecoration(
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-              ),
               labelText: CustomTextStrings.userName,
               prefixIcon: Icon(Iconsax.user),
             ),
@@ -63,9 +54,6 @@ class CustomSignUpForm extends StatelessWidget {
           TextFormField(
             expands: false,
             decoration: const InputDecoration(
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-              ),
               labelText: CustomTextStrings.email,
               prefixIcon: Icon(Iconsax.direct),
             ),
@@ -75,9 +63,6 @@ class CustomSignUpForm extends StatelessWidget {
           TextFormField(
             expands: false,
             decoration: const InputDecoration(
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-              ),
               labelText: CustomTextStrings.phoneNumber,
               prefixIcon: Icon(Iconsax.call),
             ),
@@ -87,9 +72,6 @@ class CustomSignUpForm extends StatelessWidget {
           TextFormField(
             expands: false,
             decoration: const InputDecoration(
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-              ),
               labelText: CustomTextStrings.password,
               prefixIcon: Icon(Iconsax.password_check),
               suffixIcon: Icon(Iconsax.eye_slash),
