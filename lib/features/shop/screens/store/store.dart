@@ -21,11 +21,11 @@ class StoreScreen extends StatelessWidget {
     return DefaultTabController(
       length: 5,
       child: Scaffold(
-        appBar: CustomAppBar(
-          title: const Text('Store'),
+        appBar: const CustomAppBar(
+          title: Text('Store'),
       
           actions: [
-            CustomCartCounterIcon(onPressed: () {}),
+            CustomCartCounterIcon(),
           ]
         ),
         body: NestedScrollView(headerSliverBuilder: (_, innerBoxIsScrolled) {

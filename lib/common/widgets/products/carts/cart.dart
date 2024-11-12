@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:quick_shop_app/features/shop/screens/cart/cart.dart';
 import 'package:quick_shop_app/utils/constants/colors.dart';
 import 'package:quick_shop_app/utils/helpers/helper_functions.dart';
 
@@ -7,11 +9,9 @@ class CustomCartCounterIcon extends StatelessWidget {
   const CustomCartCounterIcon({
     super.key,
     this.iconColor,
-    required this.onPressed,
   });
 
   final Color? iconColor;
-  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class CustomCartCounterIcon extends StatelessWidget {
     return Stack(
       children: [
         IconButton(
-          onPressed: onPressed,
+          onPressed: () => Get.to(() => const CartScreen()),
           icon: const Icon(Iconsax.shopping_bag),
           color: iconColor ?? (dark ? CustomColors.light : CustomColors.dark),
         ),

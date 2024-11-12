@@ -20,10 +20,9 @@ class CustomHomeAppBar extends StatelessWidget {
           Text(CustomTextStrings.homeAppbarSubtitle, style: Theme.of(context).textTheme.labelSmall!.apply(color: CustomColors.white)),
         ]
       ),
-      actions: [
+      actions: const [
         CustomCartCounterIcon(
           iconColor: CustomColors.white,
-          onPressed: () {},
         ),
       ],
     );
