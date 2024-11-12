@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:quick_shop_app/common/widgets/section_heading.dart';
 import 'package:quick_shop_app/features/shop/screens/product_detail/widget/product_detail_attributes.dart';
@@ -6,6 +7,7 @@ import 'package:quick_shop_app/features/shop/screens/product_detail/widget/produ
 import 'package:quick_shop_app/features/shop/screens/product_detail/widget/product_detail_heading.dart';
 import 'package:quick_shop_app/features/shop/screens/product_detail/widget/product_detail_rating.dart';
 import 'package:quick_shop_app/features/shop/screens/product_detail/widget/product_meta_data.dart';
+import 'package:quick_shop_app/features/shop/screens/product_review/product_review.dart';
 import 'package:quick_shop_app/utils/constants/sizes.dart';
 import 'package:readmore/readmore.dart';
 
@@ -61,7 +63,7 @@ class ProductDetailScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const CustomSectionHeading(title: 'Reviews(200)', showActionButton: false),
-                      IconButton(onPressed: () {}, icon: const Icon(Iconsax.arrow_right_3, size: 18))
+                      IconButton(onPressed: () => Get.to(() => const ProductReviewScreen()), icon: const Icon(Iconsax.arrow_right_3, size: 18))
                     ],
                   ),
                   const SizedBox(height: CustomSizes.spaceBtwSections),
