@@ -9,6 +9,7 @@ import 'package:quick_shop_app/common/widgets/user_profile_tile.dart';
 import 'package:quick_shop_app/features/personalization/screens/address/address.dart';
 import 'package:quick_shop_app/features/personalization/screens/profile/profile.dart';
 import 'package:quick_shop_app/features/shop/screens/cart/cart.dart';
+import 'package:quick_shop_app/features/shop/screens/order/order.dart';
 import 'package:quick_shop_app/utils/constants/colors.dart';
 import 'package:quick_shop_app/utils/constants/sizes.dart';
 
@@ -64,7 +65,7 @@ class SettingsScreen extends StatelessWidget {
                     icon: Iconsax.bag_tick,
                     title: 'My Orders',
                     subtitle: 'View your order history',
-                    onTap: () {},
+                    onTap: () => Get.to(() => const OrdersScreen()),
                   ),
                   CustomSettingsMenuTile(
                     icon: Iconsax.bank,
