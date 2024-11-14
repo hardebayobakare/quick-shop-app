@@ -42,7 +42,7 @@ class CustomOrderListItems extends StatelessWidget {
                 IconButton(onPressed: () {}, icon: const Icon(Iconsax.arrow_right_34, size: CustomSizes.iconSm))
               ],
             ),
-            SizedBox(height: CustomSizes.spaceBtwItems),
+            const SizedBox(height: CustomSizes.spaceBtwItems),
             Row(
               children: [
                 Expanded(

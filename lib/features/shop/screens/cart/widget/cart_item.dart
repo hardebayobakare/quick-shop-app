@@ -31,7 +31,7 @@ class CustomCartItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const CustomBrandTitleTextWithVerification(brandName: 'Nike', isVerified: true),
-            const Flexible(child: const CustomProductTitleText(title: 'Nike Air Max 270', maxLines: 1)),
+            const Flexible(child: CustomProductTitleText(title: 'Nike Air Max 270', maxLines: 1)),
             Text.rich(
               TextSpan(
                 children: [

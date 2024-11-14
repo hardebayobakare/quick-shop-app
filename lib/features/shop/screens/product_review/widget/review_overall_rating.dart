@@ -13,7 +13,7 @@ class CustomOveralProductRating extends StatelessWidget {
         Expanded(flex: 3, child: Text('4.4', style: Theme.of(context).textTheme.displayLarge)),
         const Expanded(
           flex: 7,
-          child: const Column(
+          child: Column(
             children: [
               CustomRatingProgressIndicator(text: '5', value: 0.8),
               CustomRatingProgressIndicator(text: '4', value: 0.6),

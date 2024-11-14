@@ -29,7 +29,7 @@ class CustomBrandCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final dark = CustomHelperFunctions.isDarkMode(context);
     return GestureDetector(
-      onTap: () {},
+      onTap: onTap,
       child: CustomRoundedContainer(
         padding: const EdgeInsets.all(CustomSizes.sm),
         showborder: showBorder,

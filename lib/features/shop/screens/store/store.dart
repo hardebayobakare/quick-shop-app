@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:quick_shop_app/common/widgets/app_bar.dart';
 import 'package:quick_shop_app/common/widgets/brand_card.dart';
 import 'package:quick_shop_app/common/widgets/products/carts/cart.dart';
@@ -6,6 +7,7 @@ import 'package:quick_shop_app/common/widgets/grid_layout.dart';
 import 'package:quick_shop_app/common/widgets/search_container.dart';
 import 'package:quick_shop_app/common/widgets/section_heading.dart';
 import 'package:quick_shop_app/common/widgets/tab_bar.dart';
+import 'package:quick_shop_app/features/shop/screens/brand/brand.dart';
 import 'package:quick_shop_app/features/shop/screens/store/widget/store_category.dart';
 import 'package:quick_shop_app/utils/constants/colors.dart';
 import 'package:quick_shop_app/utils/constants/image_strings.dart';
@@ -57,7 +59,7 @@ class StoreScreen extends StatelessWidget {
                     CustomSectionHeading(
                       title: 'Featured Brands',
                       showActionButton: true,
-                      onButtonPressed: () {},
+                      onButtonPressed: () => Get.to(() => const BrandScreen()),
                     ),
                     const SizedBox(height: CustomSizes.spaceBtwItems / 1.5),
       
