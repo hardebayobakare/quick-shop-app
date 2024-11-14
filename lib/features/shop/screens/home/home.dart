@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:quick_shop_app/common/widgets/grid_layout.dart';
 import 'package:quick_shop_app/common/widgets/primary_header_container.dart';
 import 'package:quick_shop_app/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:quick_shop_app/common/widgets/search_container.dart';
 import 'package:quick_shop_app/common/widgets/section_heading.dart';
+import 'package:quick_shop_app/features/shop/screens/all_product/all_product.dart';
 import 'package:quick_shop_app/features/shop/screens/home/widget/home_appbar.dart';
 import 'package:quick_shop_app/features/shop/screens/home/widget/home_category.dart';
 import 'package:quick_shop_app/features/shop/screens/home/widget/home_slider.dart';
@@ -89,7 +91,7 @@ class HomeScreen extends StatelessWidget {
                   const SizedBox(height: CustomSizes.spaceBtwSections),
                   CustomSectionHeading(
                     title: CustomTextStrings.popularProducts,
-                    onButtonPressed: () {},
+                    onButtonPressed: () => Get.to(() => const AllProductsScreen()),
                   ),
                   const SizedBox(height: CustomSizes.spaceBtwItems),
                   CustomGridLayout(
