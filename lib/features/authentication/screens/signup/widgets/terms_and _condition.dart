@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:quick_shop_app/features/authentication/controllers/signup/signup_controller.dart';
 import 'package:quick_shop_app/utils/constants/colors.dart';
 import 'package:quick_shop_app/utils/constants/sizes.dart';
 import 'package:quick_shop_app/utils/constants/text_strings.dart';
@@ -11,9 +13,17 @@ class CustomTermsandConditionCheckbox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dark = CustomHelperFunctions.isDarkMode(context);
+    final controller = SignupController.instance;
     return Row(
       children: [
-        SizedBox(width:24, height: 24, child:Checkbox(value: true, onChanged: (value) {})),
+        SizedBox(
+          width:24, 
+          height: 24, 
+          child: Obx(() => Checkbox(
+            value: controller.privacyPolicy.value, 
+            onChanged: (value) => controller.privacyPolicy.value = !controller.privacyPolicy.value)
+          )
+        ),
         const SizedBox(width: CustomSizes.spaceBtwItems),
         Text.rich(
           TextSpan(
@@ -35,7 +45,7 @@ class CustomTermsandConditionCheckbox extends StatelessWidget {
                 style: Theme.of(context).textTheme.bodySmall
               ),
               TextSpan(
-                text: CustomTextStrings.termsOfService,
+                text: CustomTextStrings.termsOfUse,
                 style: Theme.of(context).textTheme.bodyMedium!.apply(
                   color: dark ? Colors.white : CustomColors.primaryColor,
                   decoration: TextDecoration.underline,

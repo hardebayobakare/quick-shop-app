@@ -29,6 +29,7 @@ class CustomTextStrings {
   static const String orSignUpWith = 'Or sign up with';
   static const String iAgreeTo = 'I agree to';
   static const String termsOfService = 'Terms of Service';
+  static const String termsOfUse = 'Terms of Use';
   static const String verificationCode = 'Verification Code';
   static const String resendEmail = 'Resend Email';
   static const String resendEmailIn = 'Resend email in';
@@ -52,10 +53,17 @@ class CustomTextStrings {
   static const String changeYourPasswordSubtitle = 'Your account security is important to us. We have sent a secure link to your email address. Please follow the instructions in the email to reset your password.';
 
 
-
   // -- Home
   static const String homeAppbarTitle = 'Good day for shopping';
   static const String homeAppbarSubtitle = 'Adebayo Bakare';
   static const String popularCategories = 'Popular Categories';
   static const String popularProducts = 'Popular Products';
+
+  // -- Other
+  static const String loadingProcess = "We are processing your information ...";
+  static const String errorOccurred = "Oh Snap!";
+  static const String acceptPolicy = "Accept Privacy Policy";
+  static const String acceptTermsAndConditions = "In order to create account, you must accept the Privacy Policy and Terms of Use";
+  static const String success = "Congratulations!";
+  static const String accountCreated = "Your account has been created successfully.";
 }

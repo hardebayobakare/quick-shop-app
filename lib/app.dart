@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:quick_shop_app/bindings/general_bindings.dart';
 import 'package:quick_shop_app/utils/constants/colors.dart';
 import 'package:quick_shop_app/utils/constants/image_strings.dart';
 import 'package:quick_shop_app/utils/themes/theme.dart';
@@ -14,6 +15,7 @@ class App extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
+      initialBinding: GeneralBindings(),
       /// Show App Loader until Authentication decides which screen to show
       home: const Scaffold(
         backgroundColor: CustomColors.primaryColor,

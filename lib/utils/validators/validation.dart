@@ -39,6 +39,25 @@ class CustomValidator {
     return null;
   }
 
+  static String? validateText(String? fieldName, String? value) {
+    if (value == null || value.isEmpty) {
+      return '$fieldName is required';
+    }
+
+    if (!value.contains(RegExp(r'^[a-zA-Z ]+$'))) {
+      return '$fieldName must contain only alphabets';
+    }
+    return null;
+  }
+
+  static String? validateOtherText(String? fieldName, String? value) {
+    if (value == null || value.isEmpty) {
+      return '$fieldName is required';
+    }
+
+    return null;
+  }
+
   static String? validatePhoneNumber(String? value) {
     if (value == null || value.isEmpty) {
       return 'Phone number is required';
@@ -50,10 +69,6 @@ class CustomValidator {
       return 'Invalid phone number format (10 digits required)';
     }
     
-    if (!value.startsWith('0')) {
-      return 'Phone number must start with 0';
-    }
-
     if (!value.contains(RegExp(r'^[0-9]*$'))) {
       return 'Phone number must contain only digits';
     }
