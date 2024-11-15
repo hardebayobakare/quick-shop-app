@@ -41,7 +41,7 @@ class UserModel {
   // Static function to split full name into first and last name
   static List<String> nameParts(String fullName) {
     final names = fullName.split(' ');
-    return names.length >= 2 ? names : [fullName, ''];
+    return names;
   }
 
   // Static function to generate a username from the full name

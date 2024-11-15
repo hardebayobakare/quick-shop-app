@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:quick_shop_app/common/menu/navigation_menu.dart';
 import 'package:quick_shop_app/features/authentication/screens/login/login.dart';
 import 'package:quick_shop_app/features/authentication/screens/onboarding/onboarding.dart';
@@ -103,10 +104,44 @@ class AuthenticationRepository extends GetxController{
     }
   }
 
+  /* ----------------- Social Account Authentication ----------------- */
+  /// [GoogleAuthentication] - Google Sign In
+  Future<UserCredential> signInWithGoogle() async {
+    try {
+      // Trigger the Google Sign In flow
+      final GoogleSignInAccount? userAccount = await GoogleSignIn().signIn();
+
+      // Obtain the GoogleSignInAuthentication object
+      final GoogleSignInAuthentication? googleAuth = await userAccount?.authentication;
+
+      // Create a new credential
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth?.accessToken,
+        idToken: googleAuth?.idToken,
+      );
+
+      // Once signed in, return the UserCredential
+      return await _auth.signInWithCredential(credential);
+
+    } on FirebaseAuthException catch (e) {
+      throw CustomFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw CustomFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const CustomFormatException();
+    } on PlatformException catch (e) {
+      throw CustomPlatformException(e.code).message;
+    } catch (e) {
+      throw CustomExceptions(e.toString());
+    }
+  }
+
+
 
   /// [LogoutUser] - Valid for any authentication method
   Future<void> logout() async {
     try {
+      await GoogleSignIn().signOut();
       await _auth.signOut();
       Get.offAll(() => const LoginScreen());
     } on FirebaseAuthException catch (e) {

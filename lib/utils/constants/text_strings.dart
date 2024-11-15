@@ -71,4 +71,6 @@ class CustomTextStrings {
   static const String accountCreated = "Your account has been created successfully.";
   static const String emailVerificationSent = "Email Verification Sent";
   static const String checkEmail = "Please check your email to verify your account.";
+  static const String dataNotSaved = "Data not saved";
+  static const String dataNotSavedMessage = "We are unable to save your data. You can update your information in your user profile.";
 }

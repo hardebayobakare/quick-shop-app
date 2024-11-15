@@ -32,7 +32,7 @@ class CustomFirebaseException implements Exception {
       case 'operation-not-allowed':
         return 'This operation is not allowed. Contact support for assistance.';
       case 'invalid-credential':
-        return 'The supplied credential is malformed or has expired.';
+        return 'Invalid email or password.';
       case 'invalid-verification-code':
         return 'Invalid verification code. Please enter a valid code.';
       case 'invalid-verification-id':
