@@ -6,6 +6,7 @@ import 'package:quick_shop_app/common/widgets/primary_header_container.dart';
 import 'package:quick_shop_app/common/widgets/section_heading.dart';
 import 'package:quick_shop_app/common/widgets/settings_menu_tile.dart';
 import 'package:quick_shop_app/common/widgets/user_profile_tile.dart';
+import 'package:quick_shop_app/data/repositories/authentication/authentication_repository.dart';
 import 'package:quick_shop_app/features/personalization/screens/address/address.dart';
 import 'package:quick_shop_app/features/personalization/screens/profile/profile.dart';
 import 'package:quick_shop_app/features/shop/screens/cart/cart.dart';
@@ -126,7 +127,7 @@ class SettingsScreen extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: OutlinedButton(
-                      onPressed: () {},
+                      onPressed: () => AuthenticationRepository.instance.logout(),
                       child: const Text('Logout'),
                     ),
                   ),

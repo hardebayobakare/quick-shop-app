@@ -76,7 +76,7 @@ class SignupController extends GetxController{
       CustomLoaders.successSnackBar(title: CustomTextStrings.success, message: CustomTextStrings.accountCreated);
 
       // Move to Email Varification Page
-      Get.to(() => const VerifyEmailScreen());
+      Get.to(() => VerifyEmailScreen(email: email.text.trim()));
 
     } catch (e) {
       CustomFullScreenLoader.closeLoadingDialog();

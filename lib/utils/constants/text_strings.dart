@@ -31,6 +31,7 @@ class CustomTextStrings {
   static const String termsOfService = 'Terms of Service';
   static const String termsOfUse = 'Terms of Use';
   static const String verificationCode = 'Verification Code';
+  static const String emailVerified = 'Your emai has been verified';
   static const String resendEmail = 'Resend Email';
   static const String resendEmailIn = 'Resend email in';
   static const String submit = 'Submit';
@@ -66,4 +67,6 @@ class CustomTextStrings {
   static const String acceptTermsAndConditions = "In order to create account, you must accept the Privacy Policy and Terms of Use";
   static const String success = "Congratulations!";
   static const String accountCreated = "Your account has been created successfully.";
+  static const String emailVerificationSent = "Email Verification Sent";
+  static const String checkEmail = "Please check your email to verify your account.";
 }
