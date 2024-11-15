@@ -9,7 +9,6 @@ import 'package:quick_shop_app/utils/constants/text_strings.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
     return const Scaffold(

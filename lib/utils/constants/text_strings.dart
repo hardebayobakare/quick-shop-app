@@ -36,10 +36,12 @@ class CustomTextStrings {
   static const String resendEmailIn = 'Resend email in';
   static const String submit = 'Submit';
   static const String done = 'Done';
+  static const String loggedIn = 'You have successfully logged in';
 
   // -- Authentication Heading Texts
   static const String loginTitle = 'Welcome Back';
   static const String loginSubtitle = 'Discover limitless choices and unmatched convenience.';
+  static const String logginIn = 'Logging you in...';
   static const String signUpTitle = "Let's create your Account";
   static const String forgetPassowrdTitle = 'Forgot password';
   static const String forgetPassowrdSubtitle = 'Enter your email to reset your password';
