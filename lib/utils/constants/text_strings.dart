@@ -30,13 +30,14 @@ class CustomTextStrings {
   static const String iAgreeTo = 'I agree to';
   static const String termsOfService = 'Terms of Service';
   static const String termsOfUse = 'Terms of Use';
-  static const String verificationCode = 'Verification Code';
+  static const String verificationCode = 'Verification Code'; 
   static const String emailVerified = 'Your emai has been verified';
   static const String resendEmail = 'Resend Email';
   static const String resendEmailIn = 'Resend email in';
   static const String submit = 'Submit';
   static const String done = 'Done';
   static const String loggedIn = 'You have successfully logged in';
+  static const String sendingEmail = 'Sending password reset email...';
 
   // -- Authentication Heading Texts
   static const String loginTitle = 'Welcome Back';
@@ -73,4 +74,6 @@ class CustomTextStrings {
   static const String checkEmail = "Please check your email to verify your account.";
   static const String dataNotSaved = "Data not saved";
   static const String dataNotSavedMessage = "We are unable to save your data. You can update your information in your user profile.";
+  static const String emailSent = "Email Sent";
+  static const String resetPasswordEmailSent = "We have sent a password reset email to your email address. Please check your email to reset your password.";
 }
