@@ -9,11 +9,16 @@ import 'package:quick_shop_app/utils/constants/colors.dart';
 import 'package:quick_shop_app/utils/helpers/helper_functions.dart';
 
 class NavigationMenu extends StatelessWidget {
-  const NavigationMenu({super.key});
+  const NavigationMenu({
+    super.key,
+    this.initialIndex = 0,
+  });
+
+  final int initialIndex;
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(NavigationController());
+    final controller = Get.put(NavigationController(initialIndex: initialIndex));
     final dark = CustomHelperFunctions.isDarkMode(context);
     return Scaffold(
       bottomNavigationBar: Obx(() => 
@@ -37,7 +42,10 @@ class NavigationMenu extends StatelessWidget {
 }
 
 class NavigationController extends GetxController {
-  final Rx<int> selectedIndex = 0.obs;
+  final Rx<int> selectedIndex;
+
+  NavigationController({int initialIndex = 0}) : selectedIndex = Rx<int>(initialIndex);
+
   final screens = [
     const HomeScreen(),
     const StoreScreen(),

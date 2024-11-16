@@ -38,6 +38,11 @@ class CustomTextStrings {
   static const String done = 'Done';
   static const String loggedIn = 'You have successfully logged in';
   static const String sendingEmail = 'Sending password reset email...';
+  static const String deleteAccount = 'Delete Account';
+  static const String delete = 'Delete';
+  static const String cancel = 'Cancel';
+  static const String verifyingAccount = 'Verifying your account...';
+  static const String processing = 'Processing';
 
   // -- Authentication Heading Texts
   static const String loginTitle = 'Welcome Back';
@@ -76,4 +81,9 @@ class CustomTextStrings {
   static const String dataNotSavedMessage = "We are unable to save your data. You can update your information in your user profile.";
   static const String emailSent = "Email Sent";
   static const String resetPasswordEmailSent = "We have sent a password reset email to your email address. Please check your email to reset your password.";
+  static const String changeNameMessage = 'Use your real name for easy verification and identification';
+  static const String updatingInformation = 'We are updating your information. Please wait...';
+  static const String nameUpdated = 'Your name has been updated successfully.';
+  static const String deleteAccountMessage = 'Are you sure you want to delete your account? This action cannot be undone. All data will be removed permanently.';
+  static const String accountDeleted = 'Your account has been deleted successfully.';
 }

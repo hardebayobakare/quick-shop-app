@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:quick_shop_app/common/widgets/app_bar.dart';
 import 'package:quick_shop_app/common/widgets/circular_image.dart';
 import 'package:quick_shop_app/common/widgets/section_heading.dart';
+import 'package:quick_shop_app/features/personalization/controllers/user_controller.dart';
+import 'package:quick_shop_app/features/personalization/screens/profile/widgets/change_name.dart';
 import 'package:quick_shop_app/features/personalization/screens/profile/widgets/profile_menu.dart';
 import 'package:quick_shop_app/utils/constants/image_strings.dart';
 import 'package:quick_shop_app/utils/constants/sizes.dart';
@@ -12,6 +15,7 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = UserController.instance;
     return Scaffold(
       appBar: const CustomAppBar(
         showBackArrow: true,
@@ -40,8 +44,8 @@ class ProfileScreen extends StatelessWidget {
               const CustomSectionHeading(title: 'Profile Information', showActionButton: false),
               const SizedBox(height: CustomSizes.spaceBtwItems),
 
-              CustomProfileMenu(title: 'Full Name', value: 'Adebayo Bakare', onPressed: () { }),
-              CustomProfileMenu(title: 'Username', value: 'hardebayo', onPressed: () { }, icon: Iconsax.copy),
+              CustomProfileMenu(title: 'Full Name', value: controller.user.value.fullName, onPressed: () => Get.to(() => const ChangeName())),
+              CustomProfileMenu(title: 'Username', value: controller.user.value.userName, onPressed: () { }, icon: Iconsax.copy),
 
               const SizedBox(height: CustomSizes.spaceBtwItems),
               const Divider(),
@@ -50,8 +54,8 @@ class ProfileScreen extends StatelessWidget {
               const CustomSectionHeading(title: 'Personal Information', showActionButton: false),
               const SizedBox(height: CustomSizes.spaceBtwItems),
 
-              CustomProfileMenu(title: 'E-mail', value: 'hardebayo@binfotech.ca', onPressed: () { }),
-              CustomProfileMenu(title: 'Phone Number', value: '+1 647 472 1906', onPressed: () { }),
+              CustomProfileMenu(title: 'E-mail', value: controller.user.value.email, onPressed: () { }),
+              CustomProfileMenu(title: 'Phone Number', value: controller.user.value.phoneNumber, onPressed: () { }),
               CustomProfileMenu(title: 'Gender', value: 'Male', onPressed: () { }),
               CustomProfileMenu(title: 'Date of Birth', value: '19, June 1992', onPressed: () { }),
               
@@ -61,7 +65,7 @@ class ProfileScreen extends StatelessWidget {
 
               Center(
                 child: TextButton(
-                  onPressed: () {}, 
+                  onPressed: () => controller.deleteAccountWarningPopup(), 
                   child: Text('Close Account', style: Theme.of(context).textTheme.bodyMedium!.apply(color: Colors.red)),
                 ),
               )

@@ -3,12 +3,12 @@ import 'package:quick_shop_app/utils/formatters/formatter.dart';
 
 class UserModel {
   final String id;
-  final String firstName;
-  final String lastName;
-  final String userName;
-  final String email;
-  final String phoneNumber;
-  final String profilePicture;
+  String firstName;
+  String lastName;
+  String userName;
+  String email;
+  String phoneNumber;
+  String profilePicture;
 
   UserModel({
     required this.id,
