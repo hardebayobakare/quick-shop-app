@@ -86,4 +86,6 @@ class CustomTextStrings {
   static const String nameUpdated = 'Your name has been updated successfully.';
   static const String deleteAccountMessage = 'Are you sure you want to delete your account? This action cannot be undone. All data will be removed permanently.';
   static const String accountDeleted = 'Your account has been deleted successfully.';
+  static const String uploadingImage = 'Uploading profile image...';
+  static const String imageUploaded = 'Your profile image has been uploaded successfully.';
 }

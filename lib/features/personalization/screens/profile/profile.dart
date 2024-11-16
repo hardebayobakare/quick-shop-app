@@ -9,6 +9,7 @@ import 'package:quick_shop_app/features/personalization/screens/profile/widgets/
 import 'package:quick_shop_app/features/personalization/screens/profile/widgets/profile_menu.dart';
 import 'package:quick_shop_app/utils/constants/image_strings.dart';
 import 'package:quick_shop_app/utils/constants/sizes.dart';
+import 'package:quick_shop_app/utils/loaders/shimmer.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -31,8 +32,14 @@ class ProfileScreen extends StatelessWidget {
                 width: double.infinity,
                 child: Column(
                   children: [
-                    const CustomCircularImage(image: CustomImages.user, width: 80, height: 80),
-                    TextButton(onPressed: () {}, child: const Text('Change Profile Image')),
+                    Obx(() {
+                      final networkImage  = controller.user.value.profilePicture;
+                      final image = networkImage.isNotEmpty ? networkImage : CustomImages.user;
+                      return controller.imageUploading.value 
+                        ? const CustomShimmerEffect(width: 80, height: 80, radius: 80,)
+                        : CustomCircularImage(image: image, width: 80, height: 80, isNetworkImage: networkImage.isNotEmpty);
+                    }),
+                    TextButton(onPressed: () => controller.uploadUserProfilePicture(), child: const Text('Change Profile Image')),
                   ],
                 ),
               ),

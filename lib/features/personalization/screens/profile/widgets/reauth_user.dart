@@ -15,11 +15,11 @@ class ReAuthLoginForm extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = UserController.instance;
     return Scaffold(
-      appBar: CustomAppBar(
+      appBar: const CustomAppBar(
         title: Text('Re-authenticate Account'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(CustomSizes.defaultSpace),
+        padding: const EdgeInsets.all(CustomSizes.defaultSpace),
         child: Form(
           key: controller.reAuthFormKey,
           child: Column(

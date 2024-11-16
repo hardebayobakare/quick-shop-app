@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:quick_shop_app/common/widgets/circular_image.dart';
 import 'package:quick_shop_app/features/personalization/controllers/user_controller.dart';
 import 'package:quick_shop_app/utils/constants/colors.dart';
 import 'package:quick_shop_app/utils/constants/image_strings.dart';
+import 'package:quick_shop_app/utils/loaders/shimmer.dart';
 
 class CustomUserProfileTile extends StatelessWidget {
   const CustomUserProfileTile({
@@ -17,12 +19,13 @@ class CustomUserProfileTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = UserController.instance;
     return ListTile(
-      leading: const CustomCircularImage(
-        image: CustomImages.user,
-        width: 50,
-        height: 50,
-        padding: 0,
-      ),
+      leading: Obx(() {
+          final networkImage  = controller.user.value.profilePicture;
+          final image = networkImage.isNotEmpty ? networkImage : CustomImages.user;
+          return controller.imageUploading.value 
+            ? const CustomShimmerEffect(width: 80, height: 80, radius: 80,)
+            : CustomCircularImage(image: image, width: 50, height: 50, padding: 0, isNetworkImage: networkImage.isNotEmpty);
+        }),
       title: Text(
         controller.user.value.fullName,
         style: Theme.of(context).textTheme.headlineSmall!.apply(color: CustomColors.white),

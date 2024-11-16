@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:quick_shop_app/data/repositories/authentication/authentication_repository.dart';
 import 'package:quick_shop_app/data/repositories/user/user_repository.dart';
 import 'package:quick_shop_app/features/authentication/screens/login/login.dart';
@@ -19,6 +20,7 @@ class UserController extends GetxController{
   final profileLoading = false.obs;
   Rx<UserModel> user = UserModel.empty().obs;
 
+  final imageUploading = false.obs;
   final hidePassword = true.obs;
   final verifyEmail = TextEditingController();
   final verifyPassword = TextEditingController();
@@ -50,26 +52,30 @@ class UserController extends GetxController{
   Future<void> saveUserRecord(UserCredential? userCredentals) async {
     // Save User Record
     try {
-      if (userCredentals != null) {
-        final nameParts = UserModel.nameParts(userCredentals.user!.displayName ?? '');
-        final username = UserModel.generateUsername(userCredentals.user!.displayName ?? '');
+      // Refresh User Record
+      await fetchUserRecord();
 
-        // Map Data
-        final user = UserModel(
-          id: userCredentals.user!.uid,
-          email: userCredentals.user!.email ?? '',
-          userName: username,
-          firstName: nameParts[0],
-          lastName: nameParts.length > 1 ? nameParts.sublist(1).join(" ") : '',
-          profilePicture: userCredentals.user!.photoURL ?? '',
-          phoneNumber: userCredentals.user!.phoneNumber ?? '',
+      if (user.value.id.isEmpty) {
+        if (userCredentals != null) {
+          final nameParts = UserModel.nameParts(userCredentals.user!.displayName ?? '');
+          final username = UserModel.generateUsername(userCredentals.user!.displayName ?? '');
 
-        );
+          // Map Data
+          final user = UserModel(
+            id: userCredentals.user!.uid,
+            email: userCredentals.user!.email ?? '',
+            userName: username,
+            firstName: nameParts[0],
+            lastName: nameParts.length > 1 ? nameParts.sublist(1).join(" ") : '',
+            profilePicture: userCredentals.user!.photoURL ?? '',
+            phoneNumber: userCredentals.user!.phoneNumber ?? '',
 
-        // Save User Record
-        await UserRepository.instance.saveUserDetails(user);        
+          );
+
+          // Save User Record
+          await UserRepository.instance.saveUserDetails(user);        
+        }
       }
-
     } catch (e) {
       CustomLoaders.warningSnackBar(title: CustomTextStrings.dataNotSaved, message: CustomTextStrings.dataNotSavedMessage);
     }
@@ -171,5 +177,31 @@ class UserController extends GetxController{
     }
   }
 
+  // Upload User Profile Picture
+  void uploadUserProfilePicture() async {
+    try {
+      final image = await ImagePicker().pickImage(source: ImageSource.gallery, imageQuality: 70, maxHeight: 512, maxWidth: 512);
+      if (image != null) {
+        imageUploading.value = true;
+        final imageUrl = await userRepository.uploadImage('Users/Images/Profile', image);
+      
+        // Upload User Image
+        Map<String, dynamic> json = {
+          'ProfilePicture': imageUrl,
+        };
+      
+        await userRepository.updateUserField(json);
+      
+        user.value.profilePicture = imageUrl;
+        user.refresh();
+        
+        CustomLoaders.successSnackBar(title: CustomTextStrings.success, message: CustomTextStrings.imageUploaded);
+      }
+    }  catch (e) {
+      CustomLoaders.errorSnackBar(title: CustomTextStrings.errorOccurred, message: e.toString());
+    } finally {
+      imageUploading.value = false;
+    }
+  }
 
 }
