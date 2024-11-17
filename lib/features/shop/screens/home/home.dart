@@ -11,7 +11,6 @@ import 'package:quick_shop_app/features/shop/screens/home/widget/home_appbar.dar
 import 'package:quick_shop_app/features/shop/screens/home/widget/home_category.dart';
 import 'package:quick_shop_app/features/shop/screens/home/widget/home_slider.dart';
 import 'package:quick_shop_app/utils/constants/colors.dart';
-import 'package:quick_shop_app/utils/constants/image_strings.dart';
 import 'package:quick_shop_app/utils/constants/sizes.dart';
 import 'package:quick_shop_app/utils/constants/text_strings.dart';
 

@@ -38,7 +38,6 @@ class BannerModel {
         id: snapshot.id,
         image: data['Image'] ?? '',
         isActive: data['IsActive'] ?? false,
-        targetScreen: data['TargetScreen'] ?? '',
       );
     } else {
       return BannerModel.empty();
