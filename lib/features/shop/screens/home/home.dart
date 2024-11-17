@@ -7,7 +7,7 @@ import 'package:quick_shop_app/common/widgets/products/product_cards/product_car
 import 'package:quick_shop_app/common/widgets/search_container.dart';
 import 'package:quick_shop_app/common/widgets/section_heading.dart';
 import 'package:quick_shop_app/common/widgets/vertical_product_shimmer.dart';
-import 'package:quick_shop_app/features/shop/controllers/product_controller.dart';
+import 'package:quick_shop_app/features/shop/controllers/product/product_controller.dart';
 import 'package:quick_shop_app/features/shop/screens/all_product/all_product.dart';
 import 'package:quick_shop_app/features/shop/screens/home/widget/home_appbar.dart';
 import 'package:quick_shop_app/features/shop/screens/home/widget/home_category.dart';

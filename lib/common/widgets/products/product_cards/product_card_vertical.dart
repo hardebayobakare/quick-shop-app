@@ -8,7 +8,7 @@ import 'package:quick_shop_app/common/widgets/products/product_cards/product_pri
 import 'package:quick_shop_app/common/widgets/products/product_cards/product_title_text.dart';
 import 'package:quick_shop_app/common/widgets/rounded_container.dart';
 import 'package:quick_shop_app/common/widgets/rounded_images.dart';
-import 'package:quick_shop_app/features/shop/controllers/product_controller.dart';
+import 'package:quick_shop_app/features/shop/controllers/product/product_controller.dart';
 import 'package:quick_shop_app/features/shop/models/brand_model.dart';
 import 'package:quick_shop_app/features/shop/models/product_model.dart';
 import 'package:quick_shop_app/features/shop/screens/product_detail/product_detail.dart';
