@@ -69,13 +69,7 @@ class HomeScreen extends StatelessWidget {
               padding: const EdgeInsets.all(CustomSizes.defaultSpace),
               child: Column(
                 children: [
-                  const CustomHomeSlider(
-                    banners: [
-                      CustomImages.banner1,
-                      CustomImages.banner2,
-                      CustomImages.banner3,
-                    ],
-                  ),
+                  const CustomHomeSlider(),
                   const SizedBox(height: CustomSizes.spaceBtwSections),
                   CustomSectionHeading(
                     title: CustomTextStrings.popularProducts,

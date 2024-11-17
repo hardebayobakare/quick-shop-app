@@ -1,5 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:quick_shop_app/utils/constants/sizes.dart';
+import 'package:quick_shop_app/utils/loaders/shimmer.dart';
 
 class CustomRoundedImage extends StatelessWidget {
   const CustomRoundedImage({
@@ -41,9 +43,16 @@ class CustomRoundedImage extends StatelessWidget {
         decoration: BoxDecoration(border: border, color: backgroundColor, borderRadius: BorderRadius.circular(borderRadius)),
         child: ClipRRect(
           borderRadius: applyImageRadius ? BorderRadius.circular(CustomSizes.md) : BorderRadius.zero,
-          child: Image(image: isNetworkImage? NetworkImage(imageUrl) : AssetImage(imageUrl) as ImageProvider, fit: fit),
+          child: isNetworkImage
+            ? CachedNetworkImage(
+                imageUrl: imageUrl,
+                fit: fit,
+                progressIndicatorBuilder: (context, url, progress) => const CustomShimmerEffect(width: double.infinity, height: 200, radius: 20),
+                errorWidget: (context, url, error) => const Icon(Icons.error),
+              )
+            : Image(image: AssetImage(imageUrl), fit: fit),
         ),
-      ),
+      )
     );
   }
 }
