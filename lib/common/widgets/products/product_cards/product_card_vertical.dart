@@ -8,20 +8,30 @@ import 'package:quick_shop_app/common/widgets/products/product_cards/product_pri
 import 'package:quick_shop_app/common/widgets/products/product_cards/product_title_text.dart';
 import 'package:quick_shop_app/common/widgets/rounded_container.dart';
 import 'package:quick_shop_app/common/widgets/rounded_images.dart';
+import 'package:quick_shop_app/features/shop/controllers/product_controller.dart';
+import 'package:quick_shop_app/features/shop/models/brand_model.dart';
+import 'package:quick_shop_app/features/shop/models/product_model.dart';
 import 'package:quick_shop_app/features/shop/screens/product_detail/product_detail.dart';
 import 'package:quick_shop_app/utils/constants/colors.dart';
-import 'package:quick_shop_app/utils/constants/image_strings.dart';
+import 'package:quick_shop_app/utils/constants/enums.dart';
 import 'package:quick_shop_app/utils/constants/sizes.dart';
 import 'package:quick_shop_app/utils/helpers/helper_functions.dart';
 
 class CustomProductCardVertical extends StatelessWidget {
-  const CustomProductCardVertical({super.key});
+  const CustomProductCardVertical({
+    super.key,
+    required this.product,
+  });
+
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
     final dark = CustomHelperFunctions.isDarkMode(context);
+    final controller = ProductController.instace;
+    final salePercentage = controller.getProductDiscount(product.price, product.salePrice);
     return GestureDetector(
-      onTap: () => Get.to(() => const ProductDetailScreen()),
+      onTap: () => Get.to(() => ProductDetailScreen(product: product)),
       child: Container(
         width: 180,
         padding: const EdgeInsets.all(1),
@@ -42,9 +52,12 @@ class CustomProductCardVertical extends StatelessWidget {
               child: Stack(
                 children: [
                   // Thumbnail
-                  const CustomRoundedImage(
-                    imageUrl: CustomImages.productImage1,
-                    applyImageRadius: true,
+                  Center(
+                    child: CustomRoundedImage(
+                      imageUrl: product.thumbnail,
+                      applyImageRadius: true,
+                      isNetworkImage: true,
+                    ),
                   ),
       
                   // Discount Tag
@@ -55,7 +68,7 @@ class CustomProductCardVertical extends StatelessWidget {
                       backgroundColor: CustomColors.secondaryColor.withOpacity(0.8),
                       padding: const EdgeInsets.symmetric(horizontal: CustomSizes.sm, vertical: CustomSizes.xs),
                       child: Text(
-                        '20%',
+                        '$salePercentage%',
                         style: Theme.of(context).textTheme.labelLarge!.apply(color: CustomColors.black),
                       ),
                     
@@ -78,18 +91,18 @@ class CustomProductCardVertical extends StatelessWidget {
             
       
             // Product Details
-            const Padding(
-              padding: EdgeInsets.only(left: CustomSizes.sm),
+            Padding(
+              padding: const EdgeInsets.only(left: CustomSizes.sm),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // Product Name
                   CustomProductTitleText(
-                    title: 'Nike Air Max 270',
+                    title: product.title,
                     smallSize: true,
                   ),
-                  SizedBox(height: CustomSizes.spaceBtwItems / 2),
-                  CustomBrandTitleTextWithVerification(brandName: "Nike", isVerified: true)
+                  const SizedBox(height: CustomSizes.spaceBtwItems / 2),
+                  CustomBrandTitleTextWithVerification(brand: product.brand ?? BrandModel.empty(), maxLines: 1),
                 ],
               ),
             ),
@@ -97,10 +110,28 @@ class CustomProductCardVertical extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Padding(
-                  padding: EdgeInsets.only(left: CustomSizes.sm),
-                  child: CustomProductPriceText(
-                    price: '120.99',
+                Flexible(
+                  child: Column(
+                    children: [
+                      if (product.productType == ProductType.single.toString() && product.salePrice > 0)
+                        // Sale Price
+                        Padding(
+                          padding: const EdgeInsets.only(left: CustomSizes.sm),
+                          child: Text(
+                            '\$$product.price.toString()',
+                            style: Theme.of(context).textTheme.labelMedium!.apply(
+                              color: CustomColors.grey,
+                              decoration: TextDecoration.lineThrough)
+                          ),
+                        ),
+                      // Product Price
+                      Padding(
+                        padding: const EdgeInsets.only(left: CustomSizes.sm),
+                        child: CustomProductPriceText(
+                          price: controller.getProductPrice(product),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 Container (

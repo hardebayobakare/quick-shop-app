@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:quick_shop_app/common/widgets/brand_card.dart';
 import 'package:quick_shop_app/common/widgets/rounded_container.dart';
+import 'package:quick_shop_app/features/shop/models/brand_model.dart';
 import 'package:quick_shop_app/utils/constants/colors.dart';
-import 'package:quick_shop_app/utils/constants/image_strings.dart';
 import 'package:quick_shop_app/utils/constants/sizes.dart';
 import 'package:quick_shop_app/utils/helpers/helper_functions.dart';
 
 class CustomBrandShowcase extends StatelessWidget {
   const CustomBrandShowcase({
     super.key,
+    required this.brand,
     required this.productImages,
   });
 
+  final BrandModel brand;
   final List<String> productImages;
 
   @override
@@ -25,12 +27,9 @@ class CustomBrandShowcase extends StatelessWidget {
       child: Column(
         children: [
           // Brand with Product Count
-          const CustomBrandCard(
+          CustomBrandCard(
+            brand: brand,
             showBorder: false,
-            image: CustomImages.nikeLogo,
-            brandName: 'Nike',
-            productsCount: '300',
-            isVerified: true,
           ),
 
           const SizedBox(height: CustomSizes.spaceBtwItems),

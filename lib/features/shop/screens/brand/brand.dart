@@ -4,8 +4,8 @@ import 'package:quick_shop_app/common/widgets/app_bar.dart';
 import 'package:quick_shop_app/common/widgets/brand_card.dart';
 import 'package:quick_shop_app/common/widgets/grid_layout.dart';
 import 'package:quick_shop_app/common/widgets/section_heading.dart';
+import 'package:quick_shop_app/features/shop/models/brand_model.dart';
 import 'package:quick_shop_app/features/shop/screens/brand/brand_products.dart';
-import 'package:quick_shop_app/utils/constants/image_strings.dart';
 import 'package:quick_shop_app/utils/constants/sizes.dart';
 
 class BrandScreen extends StatelessWidget {
@@ -31,10 +31,7 @@ class BrandScreen extends StatelessWidget {
                 itemCount: 10,
                 itemBuilder: (_, index) => CustomBrandCard(
                   showBorder: true,
-                  image: CustomImages.nikeLogo,
-                  brandName: 'Nike',
-                  productsCount: '300',
-                  isVerified: true,
+                  brand: BrandModel.empty(),
                   onTap: () => Get.to(() => const BrandProductsScreen()),
                   ),
               )

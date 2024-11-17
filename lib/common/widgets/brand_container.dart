@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:quick_shop_app/common/widgets/brand_text.dart';
+import 'package:quick_shop_app/features/shop/models/brand_model.dart';
 import 'package:quick_shop_app/utils/constants/colors.dart';
 import 'package:quick_shop_app/utils/constants/enums.dart';
 import 'package:quick_shop_app/utils/constants/sizes.dart';
@@ -8,8 +9,7 @@ import 'package:quick_shop_app/utils/constants/sizes.dart';
 class CustomBrandTitleTextWithVerification extends StatelessWidget {
   const CustomBrandTitleTextWithVerification({
     super.key,
-    required this.brandName,
-    required this.isVerified,
+    required this.brand,
     this.maxLines = 1,
     this.iconColor = CustomColors.primaryColor,
     this.textColor,
@@ -17,8 +17,7 @@ class CustomBrandTitleTextWithVerification extends StatelessWidget {
     this.brandTextSize = TextSizes.small, 
   });
   
-  final String brandName;
-  final bool isVerified;
+  final BrandModel brand;
   final int maxLines;
   final Color? textColor, iconColor;
   final TextAlign? textAlign;
@@ -31,7 +30,7 @@ class CustomBrandTitleTextWithVerification extends StatelessWidget {
       children: [
         Flexible(
           child: CustomBrandText(
-            brandName: brandName,
+            brandName: brand.name,
             color: textColor,
             maxlines: maxLines,
             textAlign: textAlign,
@@ -39,7 +38,7 @@ class CustomBrandTitleTextWithVerification extends StatelessWidget {
           ),
         ),
         const SizedBox(width: CustomSizes.xs),
-        isVerified ? const Icon(Iconsax.verify5, color: CustomColors.primaryColor, size: CustomSizes.iconXs) : const SizedBox.shrink(),
+        brand.isVerified ? const Icon(Iconsax.verify5, color: CustomColors.primaryColor, size: CustomSizes.iconXs) : const SizedBox.shrink(),
       ],
     );
   }

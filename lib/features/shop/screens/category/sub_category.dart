@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quick_shop_app/common/widgets/products/product_cards/product_card_horizontal.dart';
 import 'package:quick_shop_app/common/widgets/section_heading.dart';
+import 'package:quick_shop_app/features/shop/models/product_model.dart';
 import 'package:quick_shop_app/utils/constants/sizes.dart';
 
 class CustomSubCategory extends StatelessWidget {
@@ -21,7 +22,7 @@ class CustomSubCategory extends StatelessWidget {
             itemCount: 3,
             scrollDirection: Axis.horizontal,
             separatorBuilder: (context, index) => const SizedBox(width: CustomSizes.spaceBtwItems),
-            itemBuilder: (context, index) => const CustomProductCardHorizontal()
+            itemBuilder: (context, index) => CustomProductCardHorizontal(product: ProductModel.empty())
           ),
         )
       ],

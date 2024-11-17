@@ -8,10 +8,10 @@ import 'package:quick_shop_app/common/widgets/search_container.dart';
 import 'package:quick_shop_app/common/widgets/section_heading.dart';
 import 'package:quick_shop_app/common/widgets/tab_bar.dart';
 import 'package:quick_shop_app/features/shop/controllers/category_controller.dart';
+import 'package:quick_shop_app/features/shop/models/brand_model.dart';
 import 'package:quick_shop_app/features/shop/screens/brand/brand.dart';
 import 'package:quick_shop_app/features/shop/screens/store/widget/store_category.dart';
 import 'package:quick_shop_app/utils/constants/colors.dart';
-import 'package:quick_shop_app/utils/constants/image_strings.dart';
 import 'package:quick_shop_app/utils/constants/sizes.dart';
 import 'package:quick_shop_app/utils/helpers/helper_functions.dart';
 
@@ -70,12 +70,9 @@ class StoreScreen extends StatelessWidget {
                       itemCount: 4, 
                       mainAxisExtent: 80,
                       itemBuilder: (_, index) {
-                        return const CustomBrandCard(
+                        return CustomBrandCard(
                           showBorder: true,
-                          image: CustomImages.nikeLogo,
-                          brandName: 'Nike',
-                          productsCount: '300',
-                          isVerified: true,
+                          brand: BrandModel.empty(),
                         );
                       }
                     )

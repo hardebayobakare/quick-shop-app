@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:quick_shop_app/common/widgets/brand_container.dart';
 import 'package:quick_shop_app/common/widgets/products/product_cards/product_title_text.dart';
 import 'package:quick_shop_app/common/widgets/rounded_images.dart';
+import 'package:quick_shop_app/features/shop/models/brand_model.dart';
+import 'package:quick_shop_app/features/shop/models/product_model.dart';
 import 'package:quick_shop_app/utils/constants/colors.dart';
 import 'package:quick_shop_app/utils/constants/image_strings.dart';
 import 'package:quick_shop_app/utils/constants/sizes.dart';
@@ -10,7 +12,10 @@ import 'package:quick_shop_app/utils/helpers/helper_functions.dart';
 class CustomCartItem extends StatelessWidget {
   const CustomCartItem({
     super.key,
+    required this.product,
   });
+
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +35,7 @@ class CustomCartItem extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const CustomBrandTitleTextWithVerification(brandName: 'Nike', isVerified: true),
+            CustomBrandTitleTextWithVerification(brand: product.brand ?? BrandModel.empty()),
             const Flexible(child: CustomProductTitleText(title: 'Nike Air Max 270', maxLines: 1)),
             Text.rich(
               TextSpan(

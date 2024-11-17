@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quick_shop_app/common/widgets/products/product_cards/product_price_text.dart';
+import 'package:quick_shop_app/features/shop/models/product_model.dart';
 import 'package:quick_shop_app/features/shop/screens/cart/widget/cart_add_remove_quantity.dart';
 import 'package:quick_shop_app/features/shop/screens/cart/widget/cart_item.dart';
 import 'package:quick_shop_app/utils/constants/sizes.dart';
@@ -20,7 +21,7 @@ class CustomCartItems extends StatelessWidget {
       itemCount: 2,
       itemBuilder: (_, index) => Column(
         children: [
-          const CustomCartItem(),
+          CustomCartItem(product: ProductModel.empty()),
           if(showActionButton) const SizedBox(height: CustomSizes.spaceBtwItems),
           if(showActionButton) const Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

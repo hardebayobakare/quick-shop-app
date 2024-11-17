@@ -6,6 +6,8 @@ import 'package:quick_shop_app/common/widgets/primary_header_container.dart';
 import 'package:quick_shop_app/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:quick_shop_app/common/widgets/search_container.dart';
 import 'package:quick_shop_app/common/widgets/section_heading.dart';
+import 'package:quick_shop_app/common/widgets/vertical_product_shimmer.dart';
+import 'package:quick_shop_app/features/shop/controllers/product_controller.dart';
 import 'package:quick_shop_app/features/shop/screens/all_product/all_product.dart';
 import 'package:quick_shop_app/features/shop/screens/home/widget/home_appbar.dart';
 import 'package:quick_shop_app/features/shop/screens/home/widget/home_category.dart';
@@ -19,6 +21,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ProductController());
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -75,16 +78,20 @@ class HomeScreen extends StatelessWidget {
                     onButtonPressed: () => Get.to(() => const AllProductsScreen()),
                   ),
                   const SizedBox(height: CustomSizes.spaceBtwItems),
-                  CustomGridLayout(
-                    itemCount: 2,
-                    itemBuilder: (_, index) => const CustomProductCardVertical(),
-                  ),
+                  Obx(() {
+                    if (controller.featuredProducts.isEmpty) {
+                      return Center(
+                        child: Text(CustomTextStrings.noContent, style: Theme.of(context).textTheme.bodyMedium)
+                      );}
+                    if (controller.isLoading.value) return CustomVerticalProductShimmer(itemCount: controller.featuredProducts.length);
+                    return CustomGridLayout(
+                      itemCount: controller.featuredProducts.length,
+                      itemBuilder: (_, index) => CustomProductCardVertical(product: controller.featuredProducts[index]),
+                    );
+                  }),
                 ],
               )            
             ),
-
-            
-
         ],),
       ),
     );

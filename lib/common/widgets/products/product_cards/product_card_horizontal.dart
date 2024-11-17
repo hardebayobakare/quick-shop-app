@@ -6,14 +6,19 @@ import 'package:quick_shop_app/common/widgets/products/product_cards/product_pri
 import 'package:quick_shop_app/common/widgets/products/product_cards/product_title_text.dart';
 import 'package:quick_shop_app/common/widgets/rounded_container.dart';
 import 'package:quick_shop_app/common/widgets/rounded_images.dart';
+import 'package:quick_shop_app/features/shop/models/brand_model.dart';
+import 'package:quick_shop_app/features/shop/models/product_model.dart';
 import 'package:quick_shop_app/utils/constants/colors.dart';
-import 'package:quick_shop_app/utils/constants/image_strings.dart';
 import 'package:quick_shop_app/utils/constants/sizes.dart';
 import 'package:quick_shop_app/utils/helpers/helper_functions.dart';
 
 class CustomProductCardHorizontal extends StatelessWidget {
-  const CustomProductCardHorizontal({super.key});
+  const CustomProductCardHorizontal({
+    super.key,
+    required this.product,
+  });
 
+  final ProductModel product;
   @override
   Widget build(BuildContext context) {
     final dark = CustomHelperFunctions.isDarkMode(context);
@@ -33,10 +38,10 @@ class CustomProductCardHorizontal extends StatelessWidget {
             child: Stack(
               children: [
                 // Thumbnail Image
-                const SizedBox(
+                SizedBox(
                   height:120, 
                   width: 120, 
-                  child: CustomRoundedImage(width: double.infinity, imageUrl: CustomImages.productImage1, applyImageRadius: true)
+                  child: CustomRoundedImage(width: double.infinity, imageUrl: product.thumbnail, applyImageRadius: true)
                 ),
 
                 // Discount Tag
@@ -74,23 +79,23 @@ class CustomProductCardHorizontal extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Column(
+                  Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       // Product Name
                       CustomProductTitleText(
-                        title: 'Nike Air Max 270',
+                        title: product.title,
                         smallSize: true,
                       ),
-                      SizedBox(height: CustomSizes.spaceBtwItems / 2),
-                      CustomBrandTitleTextWithVerification(brandName: "Nike", isVerified: true)
+                      const SizedBox(height: CustomSizes.spaceBtwItems / 2),
+                      CustomBrandTitleTextWithVerification(brand: product.brand ?? BrandModel.empty()),
                     ],
                   ),
                   const Spacer(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Flexible(child: CustomProductPriceText(price: "295.95")),
+                      Flexible(child: CustomProductPriceText(price: product.price.toString())),
 
                       Container (
                         decoration: const BoxDecoration(

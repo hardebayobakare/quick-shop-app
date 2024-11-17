@@ -4,6 +4,7 @@ import 'package:quick_shop_app/common/widgets/circular_image.dart';
 import 'package:quick_shop_app/common/widgets/products/product_cards/product_price_text.dart';
 import 'package:quick_shop_app/common/widgets/products/product_cards/product_title_text.dart';
 import 'package:quick_shop_app/common/widgets/rounded_container.dart';
+import 'package:quick_shop_app/features/shop/models/brand_model.dart';
 import 'package:quick_shop_app/utils/constants/colors.dart';
 import 'package:quick_shop_app/utils/constants/enums.dart';
 import 'package:quick_shop_app/utils/constants/image_strings.dart';
@@ -72,7 +73,7 @@ class CustomProductMetaData extends StatelessWidget {
               overlayColor: dark ? CustomColors.white : CustomColors.black,
             ),
             const SizedBox(width: CustomSizes.spaceBtwItems / 2),
-            const CustomBrandTitleTextWithVerification(brandName: 'Nike', isVerified: true, brandTextSize: TextSizes.medium,),
+            CustomBrandTitleTextWithVerification(brand: BrandModel.empty(), brandTextSize: TextSizes.medium,),
           ],
         )
 

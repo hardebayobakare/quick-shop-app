@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:quick_shop_app/common/widgets/section_heading.dart';
+import 'package:quick_shop_app/features/shop/models/product_model.dart';
 import 'package:quick_shop_app/features/shop/screens/product_detail/widget/product_detail_attributes.dart';
 import 'package:quick_shop_app/features/shop/screens/product_detail/widget/product_detail_bottom_add_to_cart.dart';
 import 'package:quick_shop_app/features/shop/screens/product_detail/widget/product_detail_heading.dart';
@@ -12,7 +13,12 @@ import 'package:quick_shop_app/utils/constants/sizes.dart';
 import 'package:readmore/readmore.dart';
 
 class ProductDetailScreen extends StatelessWidget {
-  const ProductDetailScreen({super.key});
+  const ProductDetailScreen({
+    super.key,
+    required this.product,
+  });
+
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
