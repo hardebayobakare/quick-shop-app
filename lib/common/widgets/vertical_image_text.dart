@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quick_shop_app/common/widgets/circular_image.dart';
 import 'package:quick_shop_app/utils/constants/colors.dart';
 import 'package:quick_shop_app/utils/constants/sizes.dart';
 import 'package:quick_shop_app/utils/helpers/helper_functions.dart';
@@ -10,12 +11,14 @@ class CustomVerticalImageText extends StatelessWidget {
     required this.title,
     this.textColor = CustomColors.white,
     this.backgroundColor = CustomColors.white,
+    this.isNetworkImage = true,
     this.onTap,
   });
 
   final String image, title;
   final Color textColor;
   final Color? backgroundColor;
+  final bool isNetworkImage;
   final void Function()? onTap;
 
   @override
@@ -27,17 +30,13 @@ class CustomVerticalImageText extends StatelessWidget {
         padding: const EdgeInsets.only(right: CustomSizes.spaceBtwItems),
         child: Column(
           children: [
-            Container(
-              width: 56,
-              height: 56,
-              padding: const EdgeInsets.all(CustomSizes.sm),
-              decoration: BoxDecoration(
-                color: dark ? CustomColors.dark : CustomColors.light,
-                borderRadius: BorderRadius.circular(100),
-              ),
-              child: Center(
-                child: Image(image: AssetImage(image), fit: BoxFit.cover, color: dark? CustomColors.light : CustomColors.dark),
-              ),
+            CustomCircularImage(
+              image: image,
+              fit: BoxFit.fitWidth,
+              padding: CustomSizes.sm * 1.4,
+              isNetworkImage: isNetworkImage,
+              backgroundColor: backgroundColor,
+              overlayColor: dark ? CustomColors.light : CustomColors.dark,
             ),
             const SizedBox(height: CustomSizes.spaceBtwItems / 2),
             SizedBox(

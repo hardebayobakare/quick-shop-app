@@ -88,4 +88,7 @@ class CustomTextStrings {
   static const String accountDeleted = 'Your account has been deleted successfully.';
   static const String uploadingImage = 'Uploading profile image...';
   static const String imageUploaded = 'Your profile image has been uploaded successfully.';
+  static const String noContent = 'No content available!';
+  static const String uploadSuccess = 'Upload Successful';
+  static const String uploadSuccessMessage = 'Your data has been uploaded successfully.';
 }

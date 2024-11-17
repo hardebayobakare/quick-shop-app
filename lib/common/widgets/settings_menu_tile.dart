@@ -6,7 +6,7 @@ class CustomSettingsMenuTile extends StatelessWidget {
     super.key,
     required this.icon,
     required this.title,
-    required this.subtitle,
+    this.subtitle = '',
     this.trailing,
     this.onTap,    
   });

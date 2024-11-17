@@ -7,6 +7,7 @@ import 'package:quick_shop_app/common/widgets/grid_layout.dart';
 import 'package:quick_shop_app/common/widgets/search_container.dart';
 import 'package:quick_shop_app/common/widgets/section_heading.dart';
 import 'package:quick_shop_app/common/widgets/tab_bar.dart';
+import 'package:quick_shop_app/features/shop/controllers/category_controller.dart';
 import 'package:quick_shop_app/features/shop/screens/brand/brand.dart';
 import 'package:quick_shop_app/features/shop/screens/store/widget/store_category.dart';
 import 'package:quick_shop_app/utils/constants/colors.dart';
@@ -20,8 +21,9 @@ class StoreScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dark = CustomHelperFunctions.isDarkMode(context);
+    final categories = CategoryController.instance.featuredCategories;
     return DefaultTabController(
-      length: 5,
+      length: categories.length,
       child: Scaffold(
         appBar: const CustomAppBar(
           title: Text('Store'),
@@ -80,26 +82,14 @@ class StoreScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              bottom: const CustomTabBar(
-                tabs: [
-                  Tab(child: Text('Sports')),
-                  Tab(child: Text('Furniture')),
-                  Tab(child: Text('Eletronics')),
-                  Tab(child: Text('Clothes')),
-                  Tab(child: Text('Cosmetics')),
-                ],
+              bottom: CustomTabBar(
+                tabs: categories.map((category) => Tab(child: Text(category.name))).toList()
               ),
             ),
           ];
         }, 
-        body: const TabBarView(
-            children: [
-              CustomCategoryTab(),
-              CustomCategoryTab(),
-              CustomCategoryTab(),
-              CustomCategoryTab(),
-              CustomCategoryTab(),
-            ]
+        body: TabBarView(
+            children: categories.map((category) => CustomCategoryTab(category: category)).toList(),
           ),
         )
       ),

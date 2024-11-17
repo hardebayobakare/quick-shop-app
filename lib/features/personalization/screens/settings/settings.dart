@@ -11,6 +11,7 @@ import 'package:quick_shop_app/features/personalization/screens/address/address.
 import 'package:quick_shop_app/features/personalization/screens/profile/profile.dart';
 import 'package:quick_shop_app/features/shop/screens/cart/cart.dart';
 import 'package:quick_shop_app/features/shop/screens/order/order.dart';
+import 'package:quick_shop_app/features/upload/screens/upload.dart';
 import 'package:quick_shop_app/utils/constants/colors.dart';
 import 'package:quick_shop_app/utils/constants/sizes.dart';
 
@@ -101,7 +102,7 @@ class SettingsScreen extends StatelessWidget {
                     icon: Iconsax.document_upload,
                     title: 'Load Data',
                     subtitle: 'Upload data from your device',
-                    onTap: () {},
+                    onTap: () => Get.to(() => const UploadDataScreen()),
                   ),
                   CustomSettingsMenuTile(
                     icon: Iconsax.location,
