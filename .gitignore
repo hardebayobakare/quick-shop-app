@@ -44,4 +44,6 @@ app.*.map.json
 
 dummy_data.dart
 
-/assets/*
+firebase_options.dart
+
+/assets/
