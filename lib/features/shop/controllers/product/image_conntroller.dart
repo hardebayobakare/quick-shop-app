@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 import 'package:quick_shop_app/features/shop/models/product_model.dart';
 import 'package:quick_shop_app/utils/constants/sizes.dart';
 
-class ImageConntroller extends GetxController{
-  static ImageConntroller instance = Get.find();
+class ImageController extends GetxController{
+  static ImageController instance = Get.find();
 
   // Variables
   RxString selectedProductImage = ''.obs;

@@ -17,7 +17,7 @@ class CustomBrandTitleTextWithVerification extends StatelessWidget {
     this.brandTextSize = TextSizes.small, 
   });
   
-  final BrandModel brand;
+  final BrandModel? brand;
   final int maxLines;
   final Color? textColor, iconColor;
   final TextAlign? textAlign;
@@ -25,12 +25,13 @@ class CustomBrandTitleTextWithVerification extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (brand == null) return const SizedBox.shrink();
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
         Flexible(
           child: CustomBrandText(
-            brandName: brand.name,
+            brandName: brand!.name,
             color: textColor,
             maxlines: maxLines,
             textAlign: textAlign,
@@ -38,7 +39,7 @@ class CustomBrandTitleTextWithVerification extends StatelessWidget {
           ),
         ),
         const SizedBox(width: CustomSizes.xs),
-        brand.isVerified ? const Icon(Iconsax.verify5, color: CustomColors.primaryColor, size: CustomSizes.iconXs) : const SizedBox.shrink(),
+        brand!.isVerified ? const Icon(Iconsax.verify5, color: CustomColors.primaryColor, size: CustomSizes.iconXs) : const SizedBox.shrink(),
       ],
     );
   }

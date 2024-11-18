@@ -4,6 +4,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:quick_shop_app/common/styles/shadow.dart';
 import 'package:quick_shop_app/common/widgets/brand_container.dart';
 import 'package:quick_shop_app/common/widgets/circular_icon.dart';
+import 'package:quick_shop_app/common/widgets/circular_image.dart';
 import 'package:quick_shop_app/common/widgets/products/product_cards/product_price_text.dart';
 import 'package:quick_shop_app/common/widgets/products/product_cards/product_title_text.dart';
 import 'package:quick_shop_app/common/widgets/rounded_container.dart';
@@ -28,7 +29,7 @@ class CustomProductCardVertical extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dark = CustomHelperFunctions.isDarkMode(context);
-    final controller = ProductController.instace;
+    final controller = ProductController.instance;
     final salePercentage = controller.getProductDiscount(product.price, product.salePrice);
     return GestureDetector(
       onTap: () => Get.to(() => ProductDetailScreen(product: product)),
@@ -101,8 +102,19 @@ class CustomProductCardVertical extends StatelessWidget {
                     title: product.title,
                     smallSize: true,
                   ),
-                  const SizedBox(height: CustomSizes.spaceBtwItems / 2),
-                  CustomBrandTitleTextWithVerification(brand: product.brand ?? BrandModel.empty(), maxLines: 1),
+                  const SizedBox(height: CustomSizes.spaceBtwItems / 4),
+                  Row(
+                    children: [
+                       CustomCircularImage(
+                        image: product.brand != null ? product.brand!.image : '', 
+                        width: 32, 
+                        height: 32,
+                        overlayColor: dark ? CustomColors.white : CustomColors.black,
+                        isNetworkImage: true,
+                      ),
+                      CustomBrandTitleTextWithVerification(brand: product.brand ?? BrandModel.empty(), maxLines: 1),
+                    ],
+                  ),
                 ],
               ),
             ),

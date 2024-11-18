@@ -6,7 +6,7 @@ import 'package:quick_shop_app/utils/constants/text_strings.dart';
 import 'package:quick_shop_app/utils/popups/loaders.dart';
 
 class ProductController extends GetxController{
-  static ProductController get instace => Get.find();
+  static ProductController get instance => Get.find();
 
   // Variables
   final isLoading = false.obs;
@@ -63,7 +63,7 @@ class ProductController extends GetxController{
       if (smallestPrice.isEqual(largestPrice)){
         return smallestPrice.toString();
       } else {
-        return '\$$smallestPrice - \$$largestPrice';
+        return '$smallestPrice - \$$largestPrice';
       }
     }
   }

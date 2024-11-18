@@ -24,7 +24,7 @@ class CustomProductImageSlider extends StatelessWidget {
   Widget build(BuildContext context) {
     final dark = CustomHelperFunctions.isDarkMode(context);
 
-    final controller = Get.put(ImageConntroller());
+    final controller = Get.put(ImageController());
     final images = controller.getAppProductImages(product);
 
     return CustomCurvedEdgesWidget(

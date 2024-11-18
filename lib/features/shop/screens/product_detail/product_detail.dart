@@ -9,6 +9,7 @@ import 'package:quick_shop_app/features/shop/screens/product_detail/widget/produ
 import 'package:quick_shop_app/features/shop/screens/product_detail/widget/product_detail_rating.dart';
 import 'package:quick_shop_app/features/shop/screens/product_detail/widget/product_meta_data.dart';
 import 'package:quick_shop_app/features/shop/screens/product_review/product_review.dart';
+import 'package:quick_shop_app/utils/constants/enums.dart';
 import 'package:quick_shop_app/utils/constants/sizes.dart';
 import 'package:readmore/readmore.dart';
 
@@ -39,11 +40,13 @@ class ProductDetailScreen extends StatelessWidget {
                   const CustomProductRatingAndShare(),
 
                   // Price, Title, Stock and Brand
-                  const CustomProductMetaData(),
+                  CustomProductMetaData(product: product),
 
                   // Attributes
-                  const CustomProductAttribute(),
-                  const SizedBox(height: CustomSizes.spaceBtwSections),
+                  if (product.productType == ProductType.variable.toString() && product.productVariations!.isNotEmpty)
+                      CustomProductAttribute(product: product),
+                  if (product.productType == ProductType.variable.toString() && product.productVariations!.isNotEmpty)
+                      const SizedBox(height: CustomSizes.spaceBtwSections),
 
                   // Checkout Button
                   SizedBox(width: double.infinity, child: ElevatedButton(onPressed: () {}, child: const Text('Add to Cart'))),
@@ -52,14 +55,14 @@ class ProductDetailScreen extends StatelessWidget {
                   // Description
                   const CustomSectionHeading(title: 'Description', showActionButton: false),
                   const SizedBox(height: CustomSizes.spaceBtwItems),
-                  const ReadMoreText(
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel erat sed mi finibus luctus. Quisque ultricies, turpis nec vehicula posuere, turpis massa volutpat augue, at lacinia enim arcu nec est. Nulla facilisi. Nullam sit amet nunc nec nulla tincidunt aliquam. Donec euismod, nunc id lacinia ultricies, nunc nulla fermentum elit, nec auctor nunc metus at nunc. Nullam non metus nec nunc tincidunt aliquam. Nulla facilisi. Nullam sit amet nunc nec nulla tincidunt aliquam. Donec euismod, nunc id lacinia ultricies, nunc nulla fermentum elit, nec auctor nunc metus at nunc. Nullam non metus nec nunc tincidunt aliquam.',
+                  ReadMoreText(
+                    product.description ?? '',
                     trimLines: 2,
                     trimMode: TrimMode.Line,
                     trimCollapsedText: 'Show more',
                     trimExpandedText: 'Less',
-                    moreStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
-                    lessStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
+                    moreStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
+                    lessStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
                   ),
 
                   // Reviews

@@ -19,7 +19,6 @@ class ProductRepository extends GetxController{
   Future<List<ProductModel>> getFeaturedProducts() async {
     try {
       final snapshot = await _db.collection('Products').where('IsFeatured', isEqualTo: true).limit(4).get();
-      print("Snapshot ${snapshot.docs[0]}");
       return snapshot.docs.map((doc) => ProductModel.fromSnapshot(doc)).toList();
     } on FirebaseException catch (e) {
       throw CustomFirebaseException(e.code).message;
@@ -66,6 +65,16 @@ class ProductRepository extends GetxController{
             variation.image = url;
           }
         }
+
+        // upload brand image
+        if (product.brand != null) {
+          final assetImage = await storage.getImageDataFromAssets(product.brand!.image);
+
+          final url = await storage.uploadImageData('Brands/Images', assetImage, product.brand!.image);
+
+          product.brand!.image = url;
+        }
+        
         await _db.collection('Products').doc(product.id).set(product.toJson());
       }
     } on FirebaseException catch (e) {
