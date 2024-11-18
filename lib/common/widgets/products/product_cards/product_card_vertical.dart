@@ -130,7 +130,7 @@ class CustomProductCardVertical extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.only(left: CustomSizes.sm),
                           child: Text(
-                            '\$$product.price.toString()',
+                            '\$${product.price.toString()}',
                             style: Theme.of(context).textTheme.labelMedium!.apply(
                               color: CustomColors.grey,
                               decoration: TextDecoration.lineThrough)

@@ -24,7 +24,7 @@ class BrandProductsScreen extends StatelessWidget {
               const SizedBox(height: CustomSizes.spaceBtwSections),
 
               // Products
-              const CustomSortableProduct(),
+              const CustomSortableProduct(products: [],),
             ],
           ),
         ),

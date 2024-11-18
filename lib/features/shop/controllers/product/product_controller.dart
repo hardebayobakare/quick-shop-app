@@ -28,8 +28,6 @@ class ProductController extends GetxController{
       // Fetch featured products
       final products = await _productRepository.getFeaturedProducts();
 
-      print("Products ${products.length}");
-
       // Update featured products
       featuredProducts.assignAll(products);
 
@@ -38,6 +36,18 @@ class ProductController extends GetxController{
     } finally {
       // Hide loading
       isLoading.value = false;
+    }
+  }
+
+  Future<List<ProductModel>> fetchAllFeaturedProducts() async{
+    try {
+      // Fetch featured products
+      final products = await _productRepository.getAllFeaturedProducts();
+      return products;
+
+    } catch (e) {
+      CustomLoaders.errorSnackBar(title: CustomTextStrings.errorOccurred, message: e.toString());
+      return [];
     }
   }
 

@@ -78,9 +78,9 @@ class ProductModel {
     return ProductModel(
       id: document.id,
       stock: data['Stock'] ?? 0,
-      sku: data['SKU'],
+      sku: data['SKU'] ?? '',
       price: double.parse((data['Price'] ?? 0.0).toString()),
-      title: data['Title'],
+      title: data['Title'] ?? '',
       salePrice: double.parse((data['SalePrice'] ?? 0.0).toString()),
       thumbnail: data['Thumbnail'] ?? '',
       isFeatured: data['IsFeatured'] ?? false,
@@ -100,9 +100,9 @@ class ProductModel {
     return ProductModel(
       id: document.id,
       stock: data['Stock'] ?? 0,
-      sku: data['SKU'],
+      sku: data['SKU'] ?? '',
       price: double.parse((data['Price'] ?? 0.0).toString()),
-      title: data['Title'],
+      title: data['Title'] ?? '',
       salePrice: double.parse((data['SalePrice'] ?? 0.0).toString()),
       thumbnail: data['Thumbnail'] ?? '',
       isFeatured: data['IsFeatured'] ?? false,

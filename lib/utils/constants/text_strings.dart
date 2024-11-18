@@ -92,4 +92,5 @@ class CustomTextStrings {
   static const String uploadSuccess = 'Upload Successful';
   static const String uploadSuccessMessage = 'Your data has been uploaded successfully.';
   static const String uploadingData = 'Uploading Data...';
+  static const String somethingWentWrong = 'Something went wrong!';
 }

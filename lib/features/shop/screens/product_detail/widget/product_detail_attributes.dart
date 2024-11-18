@@ -103,6 +103,8 @@ class CustomProductAttribute extends StatelessWidget {
                           ? (selected) {
                             if (selected && available) {
                               controller.onAttributeSelected(product, attribute.name ?? '', attributeValue);
+                            } else {
+                              controller.resetSelectedAttribues();
                             }
                           } : null);
                       }).toList()),

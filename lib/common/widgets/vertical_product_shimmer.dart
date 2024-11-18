@@ -6,7 +6,8 @@ import 'package:quick_shop_app/utils/loaders/shimmer.dart';
 class CustomVerticalProductShimmer extends StatelessWidget {
   final int itemCount;
 
-  CustomVerticalProductShimmer({
+  const CustomVerticalProductShimmer({
+    super.key, 
     this.itemCount = 4,
   });
 

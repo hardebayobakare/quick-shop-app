@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:path/path.dart' as path;
 import 'package:quick_shop_app/data/services/firebase_storage_service.dart';
 import 'package:quick_shop_app/features/shop/models/category_model.dart';
 import 'package:quick_shop_app/utils/exceptions/exceptions.dart';
@@ -43,7 +44,10 @@ class CategoryRepository extends GetxController{
       for (var category in categories) {
         // Upload image
         final imageData = await storage.getImageDataFromAssets(category.image);
-        final imageUrl = await storage.uploadImageData('Categories', imageData, category.name);
+
+        final categoryImageName = path.basename(category.image);
+
+        final imageUrl = await storage.uploadImageData('Categories', imageData, categoryImageName);
 
         category.image = imageUrl;
 
