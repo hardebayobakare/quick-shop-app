@@ -33,7 +33,7 @@ class CustomHomeCategory extends StatelessWidget {
             return CustomVerticalImageText(
               image: category.image,
               title: category.name,
-              onTap: () => Get.to(() => const CategoryScreen()),
+              onTap: () => Get.to(() => CategoryScreen(category: category)),
             );          
           },
         ),
