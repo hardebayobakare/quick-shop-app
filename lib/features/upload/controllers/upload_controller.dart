@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:quick_shop_app/data/repositories/banners/banner_repository.dart';
+import 'package:quick_shop_app/data/repositories/brand/brand_repository.dart';
 import 'package:quick_shop_app/data/repositories/categories/category_repository.dart';
 import 'package:quick_shop_app/data/repositories/products/product_repository.dart';
 import 'package:quick_shop_app/dummy_data.dart';
@@ -16,6 +17,7 @@ class UploadDataController extends GetxController{
   final CategoryRepository _categoryRepository = Get.find();
   final BannerRepository _bannerRepository = Get.find();
   final ProductRepository _productRepository = Get.find();
+  final BrandRepository _brandRepository = Get.put(BrandRepository());
 
   
 
@@ -115,5 +117,35 @@ class UploadDataController extends GetxController{
     }
   }
 
+  Future<void> uploadBrands() async {
+    try {
+      // Show loading
+      CustomFullScreenLoader.openLoadingDialog(CustomTextStrings.uploadingData, CustomImages.dataProcess);
 
+      // Check Internet Connection
+      final isConnected = await NetworkManager.instance.isConnected();
+      if (!isConnected) {
+        CustomFullScreenLoader.closeLoadingDialog();
+        return;
+      }
+
+      // Validate Dummy data
+      if (CustomDummyData.brands.isEmpty) {
+        CustomLoaders.errorSnackBar(title: CustomTextStrings.errorOccurred, message: CustomTextStrings.noContent);
+        CustomFullScreenLoader.closeLoadingDialog();
+        return;
+      }
+
+      // Upload Dummy Data
+      await _brandRepository.uploadDummyData(CustomDummyData.brands);
+
+      // Close Loading
+      CustomFullScreenLoader.closeLoadingDialog();
+
+      // Show Success Message
+      CustomLoaders.successSnackBar(title: CustomTextStrings.uploadSuccess, message: CustomTextStrings.uploadSuccessMessage);
+    } catch (e) {
+      CustomLoaders.errorSnackBar(title: CustomTextStrings.errorOccurred, message: e.toString());
+    }
+  }
 }

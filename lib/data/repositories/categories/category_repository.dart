@@ -47,7 +47,7 @@ class CategoryRepository extends GetxController{
 
         final categoryImageName = path.basename(category.image);
 
-        final imageUrl = await storage.uploadImageData('Categories', imageData, categoryImageName);
+        final imageUrl = await storage.uploadImageData('Categories/Images', imageData, categoryImageName);
 
         category.image = imageUrl;
 

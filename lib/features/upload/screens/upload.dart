@@ -32,10 +32,11 @@ class UploadDataScreen extends StatelessWidget {
                 onTap: () => controller.uploadCategories(),
               ),
               const SizedBox(height: CustomSizes.spaceBtwItems),
-              const CustomSettingsMenuTile(
+              CustomSettingsMenuTile(
                 icon: Iconsax.shop,
                 title: 'Upload Brands',
-                trailing: Icon(Iconsax.arrow_up_1),
+                trailing: const Icon(Iconsax.arrow_up_1),
+                onTap: () => controller.uploadBrands(),
               ),
               const SizedBox(height: CustomSizes.spaceBtwItems),
               CustomSettingsMenuTile(

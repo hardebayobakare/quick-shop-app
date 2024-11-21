@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class BrandModel {
   String id;
   String name;
@@ -45,6 +47,19 @@ class BrandModel {
       isFeatured: data['IsFeatured'],
       isVerified: data['IsVerified'],
       productCount: data['ProductCount'],
+    );
+  }
+
+  factory BrandModel.fromSnapshot(DocumentSnapshot<Map<String, dynamic>> snapshot) {
+    final data = snapshot.data();
+    if (data == null) return BrandModel.empty();
+    return BrandModel(
+      id: snapshot.id,
+      name: data['Name'] ?? '',
+      image: data['Image'] ?? '',
+      isFeatured: data['IsFeatured'] ?? false,
+      isVerified: data['IsVerified'] ?? false,
+      productCount: data['ProductCount'] ?? 0,
     );
   }
 }

@@ -34,7 +34,7 @@ class CustomBrandCard extends StatelessWidget {
             // Brand Icon
             Flexible(
               child: CustomCircularImage(
-                isNetworkImage: false,
+                isNetworkImage: true,
                 image: brand.image,
                 backgroundColor: Colors.transparent,
                 overlayColor: dark ? CustomColors.light : CustomColors.dark,
@@ -50,7 +50,7 @@ class CustomBrandCard extends StatelessWidget {
                 children: [
                   CustomBrandTitleTextWithVerification(brand: brand, brandTextSize: TextSizes.large),
                   Text(
-                    '${brand.productCount} Products',
+                    '${brand.productCount ?? 0} products',
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.labelMedium,
                   ),

@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:quick_shop_app/common/widgets/brand_showcase.dart';
+import 'package:get/get.dart';
 import 'package:quick_shop_app/common/widgets/grid_layout.dart';
 import 'package:quick_shop_app/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:quick_shop_app/common/widgets/section_heading.dart';
-import 'package:quick_shop_app/features/shop/models/brand_model.dart';
+import 'package:quick_shop_app/common/widgets/vertical_product_shimmer.dart';
+import 'package:quick_shop_app/features/shop/controllers/category_controller.dart';
 import 'package:quick_shop_app/features/shop/models/category_model.dart';
-import 'package:quick_shop_app/features/shop/models/product_model.dart';
-import 'package:quick_shop_app/utils/constants/image_strings.dart';
+import 'package:quick_shop_app/features/shop/screens/all_product/all_product.dart';
+import 'package:quick_shop_app/features/shop/screens/store/widget/category_brands.dart';
 import 'package:quick_shop_app/utils/constants/sizes.dart';
+import 'package:quick_shop_app/utils/constants/text_strings.dart';
+import 'package:quick_shop_app/utils/helpers/cloud_helper_functions.dart';
 
 class CustomCategoryTab extends StatelessWidget {
   const CustomCategoryTab({
@@ -19,6 +22,7 @@ class CustomCategoryTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = CategoryController.instance;
     return ListView(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
@@ -28,29 +32,31 @@ class CustomCategoryTab extends StatelessWidget {
           child: Column(
             children: [
               // Brand Showcase
-              CustomBrandShowcase(
-                brand: BrandModel.empty(),
-                productImages: const [
-                  CustomImages.productImage1,
-                  CustomImages.productImage2,
-                  CustomImages.productImage3,
-                ]
-              ),
-              CustomBrandShowcase(
-                brand: BrandModel.empty(),
-                productImages: const [
-                  CustomImages.productImage11,
-                  CustomImages.productImage11,
-                  CustomImages.productImage12,
-                ]
-              ),
-              const SizedBox(height: CustomSizes.spaceBtwItems),
+              CustomCategoryBrands(category: category),
               // Products
-              CustomSectionHeading(title: "You might like", onButtonPressed: () {}),
-              const SizedBox(height: CustomSizes.spaceBtwItems),
-        
-              CustomGridLayout(itemCount: 4, itemBuilder: (_, index) => CustomProductCardVertical(product: ProductModel.empty())),
-              const SizedBox(height: CustomSizes.spaceBtwSections),
+              FutureBuilder(
+                future: controller.getCategoryProducts(categoryId: category.id),
+                builder: (context, snapshot) {
+                  final widget = CustomCloudHelperFunctions.checkMultiRecordState(snapshot: snapshot, loader: const CustomVerticalProductShimmer());
+                  if (widget != null) return widget;
+
+                  final products = snapshot.data!;
+
+                  return Column(
+                    children: [
+                      CustomSectionHeading(
+                        title: CustomTextStrings.youMightLike, 
+                        onButtonPressed: () => Get.to(AllProductsScreen(
+                          title: category.name,
+                          futureMethod: controller.getCategoryProducts(categoryId: category.id),
+                        ))),
+                      const SizedBox(height: CustomSizes.spaceBtwItems),
+                      CustomGridLayout(itemCount: products.length, itemBuilder: (_, index) => CustomProductCardVertical(product: products[index])),
+                    ],
+                  );
+                }
+              ),        
+              
             ],
           ),
         ),

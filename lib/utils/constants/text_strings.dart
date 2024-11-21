@@ -93,4 +93,10 @@ class CustomTextStrings {
   static const String uploadSuccessMessage = 'Your data has been uploaded successfully.';
   static const String uploadingData = 'Uploading Data...';
   static const String somethingWentWrong = 'Something went wrong!';
+  static const String searchStore = 'Search in store';
+  static const String featuredBrands = 'Featured Brands';
+  static const String store = 'Store';
+  static const String brands = 'Brands';
+  static const String brand = 'Brand';
+  static const String youMightLike = 'You might like';
 }
