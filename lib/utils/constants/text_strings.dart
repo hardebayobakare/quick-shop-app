@@ -99,4 +99,8 @@ class CustomTextStrings {
   static const String brands = 'Brands';
   static const String brand = 'Brand';
   static const String youMightLike = 'You might like';
+  static const String addToWishlist = 'Product has been added to your wishlist';
+  static const String removeFromWishlist = 'Product has been removed from your wishlist';
+  static const String emptyWishlist = 'Whoops!!! Your wishlist is empty...';
+  static const String letsAddSome = 'Let \'s add some products to your wishlist';
 }

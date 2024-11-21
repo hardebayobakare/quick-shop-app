@@ -1,10 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:quick_shop_app/common/styles/curved_edges_widget.dart';
 import 'package:quick_shop_app/common/widgets/app_bar.dart';
-import 'package:quick_shop_app/common/widgets/circular_icon.dart';
+import 'package:quick_shop_app/common/widgets/favourite_icon.dart';
 import 'package:quick_shop_app/common/widgets/rounded_images.dart';
 import 'package:quick_shop_app/features/shop/controllers/product/image_conntroller.dart';
 import 'package:quick_shop_app/features/shop/models/product_model.dart';
@@ -80,10 +79,10 @@ class CustomProductImageSlider extends StatelessWidget {
             ),
     
             // Appbar Icons
-            const CustomAppBar(
+            CustomAppBar(
               showBackArrow: true,
               actions: [
-                CustomCircularIcon(icon: Iconsax.heart5, color: Colors.red,),
+                CustomFavouriteIcon(productId: product.id),
               ],
             )
     

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:quick_shop_app/common/widgets/brand_container.dart';
-import 'package:quick_shop_app/common/widgets/circular_icon.dart';
+import 'package:quick_shop_app/common/widgets/favourite_icon.dart';
 import 'package:quick_shop_app/common/widgets/products/product_cards/product_price_text.dart';
 import 'package:quick_shop_app/common/widgets/products/product_cards/product_title_text.dart';
 import 'package:quick_shop_app/common/widgets/rounded_container.dart';
@@ -60,13 +60,10 @@ class CustomProductCardHorizontal extends StatelessWidget {
                 ),
 
                 // Favourite Icon
-                  const Positioned(
+                  Positioned(
                     top: 0,
                     right: 0,
-                    child: CustomCircularIcon(
-                      icon: Iconsax.heart5,
-                      color: Colors.red,
-                    ),
+                    child: CustomFavouriteIcon(productId: product.id),
                   )
               ],
             ),

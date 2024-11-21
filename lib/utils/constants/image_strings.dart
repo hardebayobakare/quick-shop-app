@@ -147,5 +147,5 @@ class CustomImages {
 
   // -- Loading Animation
   static const String dataProcess = "assets/images/animations/141594-animation-of-docer.json";
-  
+  static const String addToWishlist = "assets/images/animations/Animation_1732163721763.json";
 }

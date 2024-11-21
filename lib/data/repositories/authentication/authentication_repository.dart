@@ -14,6 +14,7 @@ import 'package:quick_shop_app/utils/exceptions/firebase_auth_exceptions.dart';
 import 'package:quick_shop_app/utils/exceptions/firebase_exceptions.dart';
 import 'package:quick_shop_app/utils/exceptions/format_exceptions.dart';
 import 'package:quick_shop_app/utils/exceptions/platform_exceptions.dart';
+import 'package:quick_shop_app/utils/local_storage/storage_utility.dart';
 
 class AuthenticationRepository extends GetxController{
   static AuthenticationRepository get instance => Get.find();
@@ -36,6 +37,8 @@ class AuthenticationRepository extends GetxController{
     User? user = _auth.currentUser;
     if(user != null) {
       if(user.emailVerified) {
+        await CustomLocalStorage.init(user.uid);
+        
         Get.offAll(() => const NavigationMenu());
       } else {
         Get.offAll(() => VerifyEmailScreen(email: _auth.currentUser?.email));

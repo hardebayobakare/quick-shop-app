@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:quick_shop_app/common/styles/shadow.dart';
 import 'package:quick_shop_app/common/widgets/brand_container.dart';
-import 'package:quick_shop_app/common/widgets/circular_icon.dart';
 import 'package:quick_shop_app/common/widgets/circular_image.dart';
+import 'package:quick_shop_app/common/widgets/favourite_icon.dart';
 import 'package:quick_shop_app/common/widgets/products/product_cards/product_price_text.dart';
 import 'package:quick_shop_app/common/widgets/products/product_cards/product_title_text.dart';
 import 'package:quick_shop_app/common/widgets/rounded_container.dart';
@@ -72,18 +72,14 @@ class CustomProductCardVertical extends StatelessWidget {
                         '$salePercentage%',
                         style: Theme.of(context).textTheme.labelLarge!.apply(color: CustomColors.black),
                       ),
-                    
                     ),
                   ),
       
                   // Favourite Icon
-                  const Positioned(
+                  Positioned(
                     top: 0,
                     right: 0,
-                    child: CustomCircularIcon(
-                      icon: Iconsax.heart5,
-                      color: Colors.red,
-                    ),
+                    child: CustomFavouriteIcon(productId: product.id),
                   )
                 ],
               ),
@@ -169,4 +165,5 @@ class CustomProductCardVertical extends StatelessWidget {
     );
   }
 }
+
 

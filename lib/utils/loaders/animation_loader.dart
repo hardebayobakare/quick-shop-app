@@ -34,7 +34,10 @@ class CustomAnimationLoaderWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Lottie.asset(animation, width: MediaQuery.of(context).size.width * 0.8),
+          ConstrainedBox(
+            constraints: const BoxConstraints(maxHeight: 300),
+            child: Lottie.asset(animation, width: MediaQuery.of(context).size.width * 0.8)
+          ),
           const SizedBox(height: CustomSizes.defaultSpace),
           Text(
             text, 
@@ -46,8 +49,14 @@ class CustomAnimationLoaderWidget extends StatelessWidget {
             ? SizedBox(
               width: 250,
               child: OutlinedButton(
+                style: OutlinedButton.styleFrom(
+                  backgroundColor: CustomColors.dark,
+                ),
                 onPressed: onActionPressed, 
-                child: Text(actionText!, style: Theme.of(context).textTheme.bodyMedium!.apply(color: CustomColors.light)),
+                child: Text(
+                  actionText!, 
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.bodyMedium!.apply(color: CustomColors.light)),
               ),
             )
             : const SizedBox()

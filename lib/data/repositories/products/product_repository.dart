@@ -105,6 +105,22 @@ class ProductRepository extends GetxController{
     }
   }
 
+  Future<List<ProductModel>> getFavoriteProducts(List<String> productId) async {
+    try {
+      if (productId.isEmpty) return [];
+      final snapshot = await _db.collection('Products').where(FieldPath.documentId, whereIn: productId).get();
+      return snapshot.docs.map((doc) => ProductModel.fromSnapshot(doc)).toList();
+    } on FirebaseException catch (e) {
+      throw CustomFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const CustomFormatException();
+    } on PlatformException catch (e) {
+      throw CustomPlatformException(e.code).message;
+    } catch (e) {
+      throw CustomExceptions(e.toString());
+    }
+  }
+
   Future<void> uploadDummyData(List<ProductModel> products) async {
     try {
       final storage = Get.put(CustomFirebaseStorageService());
