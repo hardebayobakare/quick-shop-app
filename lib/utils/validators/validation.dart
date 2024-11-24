@@ -58,6 +58,23 @@ class CustomValidator {
     return null;
   }
 
+  static String? validatePostalCode(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Postal code is required';
+    }
+
+    // Remove spaces for validation purposes
+    final normalizedValue = value.replaceAll(' ', '');
+
+    // Regex to match 6 characters (letters or digits)
+    final postalCodeRegExp = RegExp(r'^[a-zA-Z0-9]{6}$');
+
+    if (!postalCodeRegExp.hasMatch(normalizedValue)) {
+      return 'Invalid postal code format (6 characters required)';
+    }
+    return null;
+  }
+
   static String? validatePhoneNumber(String? value) {
     if (value == null || value.isEmpty) {
       return 'Phone number is required';

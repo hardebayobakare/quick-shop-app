@@ -1,34 +1,43 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:quick_shop_app/common/widgets/app_bar.dart';
+import 'package:quick_shop_app/features/personalization/controllers/address_controller.dart';
 import 'package:quick_shop_app/utils/constants/sizes.dart';
+import 'package:quick_shop_app/utils/constants/text_strings.dart';
+import 'package:quick_shop_app/utils/validators/validation.dart';
 
 class AddNewAddressScreen extends StatelessWidget {
   const AddNewAddressScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = AddressController.instance;
     return Scaffold(
       appBar: const CustomAppBar(
         showBackArrow: true,
-        title: Text('Add New Address'),
+        title: Text(CustomTextStrings.addNewAddress),
       ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(CustomSizes.defaultSpace),
           child: Form(
+            key: controller.addressFormKey,
             child: Column(
               children: [
                 TextFormField(
+                  controller: controller.name,
+                  validator: (value) => CustomValidator.validateText(CustomTextStrings.name, value),
                   decoration: const InputDecoration(
-                    labelText: 'Name',
+                    labelText: CustomTextStrings.name,
                     prefixIcon: Icon(Iconsax.user),
                   ),
                 ),
                 const SizedBox(height: CustomSizes.spaceBtwInputFields),
                 TextFormField(
+                  controller: controller.phoneNumber,
+                  validator: (value) => CustomValidator.validatePhoneNumber(value),
                   decoration: const InputDecoration(
-                    labelText: 'Phone Number',
+                    labelText: CustomTextStrings.phoneNumber,
                     prefixIcon: Icon(Iconsax.mobile),
                   ),
                 ),
@@ -37,8 +46,10 @@ class AddNewAddressScreen extends StatelessWidget {
                   children: [
                     Expanded(
                       child: TextFormField(
+                        controller: controller.streetAddress,
+                        validator: (value) => CustomValidator.validateOtherText(CustomTextStrings.streetAddress, value),
                         decoration: const InputDecoration(
-                          labelText: 'Street Address',
+                          labelText: CustomTextStrings.streetAddress,
                           prefixIcon: Icon(Iconsax.building_31),
                         ),
                       ),
@@ -46,8 +57,10 @@ class AddNewAddressScreen extends StatelessWidget {
                     const SizedBox(width: CustomSizes.spaceBtwInputFields),
                     Expanded(
                       child: TextFormField(
+                        controller: controller.postalCode,
+                        validator: (value) => CustomValidator.validatePostalCode(value),
                         decoration: const InputDecoration(
-                          labelText: 'Postal Code',
+                          labelText: CustomTextStrings.postalCode,
                           prefixIcon: Icon(Iconsax.code),
                         ),
                       ),
@@ -59,8 +72,10 @@ class AddNewAddressScreen extends StatelessWidget {
                   children: [
                     Expanded(
                       child: TextFormField(
+                        controller: controller.city,
+                        validator: (value) => CustomValidator.validateText(CustomTextStrings.city, value),
                         decoration: const InputDecoration(
-                          labelText: 'City',
+                          labelText: CustomTextStrings.city,
                           prefixIcon: Icon(Iconsax.building),
                         ),
                       ),
@@ -68,8 +83,10 @@ class AddNewAddressScreen extends StatelessWidget {
                     const SizedBox(width: CustomSizes.spaceBtwInputFields),
                     Expanded(
                       child: TextFormField(
+                        controller: controller.state,
+                        validator: (value) => CustomValidator.validateText(CustomTextStrings.state, value),
                         decoration: const InputDecoration(
-                          labelText: 'State',
+                          labelText: CustomTextStrings.state,
                           prefixIcon: Icon(Iconsax.activity),
                         ),
                       ),
@@ -78,8 +95,10 @@ class AddNewAddressScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: CustomSizes.spaceBtwInputFields),
                 TextFormField(
+                  controller: controller.country,
+                  validator: (value) => CustomValidator.validateText(CustomTextStrings.country, value),
                   decoration: const InputDecoration(
-                    labelText: 'City',
+                    labelText: CustomTextStrings.country,
                     prefixIcon: Icon(Iconsax.global),
                   ),
                 ),
@@ -87,8 +106,8 @@ class AddNewAddressScreen extends StatelessWidget {
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: () {},
-                    child: const Text('Save'),
+                    onPressed: () => controller.addNewAddresses(),
+                    child: const Text(CustomTextStrings.save),
                   ),
                 ),
               ],

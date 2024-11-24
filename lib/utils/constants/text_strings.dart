@@ -15,6 +15,7 @@ class CustomTextStrings {
   // -- Authentication Form Texts
   static const String firstName = 'First Name';
   static const String lastName = 'Last Name';
+  static const String name = 'Name';
   static const String userName = 'Username';
   static const String email = 'Email';
   static const String password = 'Password';
@@ -43,6 +44,13 @@ class CustomTextStrings {
   static const String cancel = 'Cancel';
   static const String verifyingAccount = 'Verifying your account...';
   static const String processing = 'Processing';
+  static const String streetAddress = 'Street Address';
+  static const String postalCode = 'Postal Code';
+  static const String city = 'City';
+  static const String state = 'State';
+  static const String country = 'Country';
+  static const String save = 'Save';
+
 
   // -- Authentication Heading Texts
   static const String loginTitle = 'Welcome Back';
@@ -103,4 +111,10 @@ class CustomTextStrings {
   static const String removeFromWishlist = 'Product has been removed from your wishlist';
   static const String emptyWishlist = 'Whoops!!! Your wishlist is empty...';
   static const String letsAddSome = 'Let \'s add some products to your wishlist';
+  static const String userInfoNotFound = 'User information not found';
+  static const String addressNotFound = 'Address not found';
+  static const String addresses = 'Addresses';
+  static const String addNewAddress = 'Add New Address';
+  static const String storingAddress = 'Storing Address...';
+  static const String addressStored = 'Your address has been stored successfully.';
 }
