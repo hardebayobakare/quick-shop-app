@@ -117,4 +117,19 @@ class CustomTextStrings {
   static const String addNewAddress = 'Add New Address';
   static const String storingAddress = 'Storing Address...';
   static const String addressStored = 'Your address has been stored successfully.';
+  static const String selectQuatity = 'Please select quantity';
+  static const String outOfStock = 'Out of Stock';
+  static const String variationOutOfStockMessage = 'This product variation is out of stock. Please check back later.';
+  static const String outOfStockMessage = 'This product is out of stock. Please check back later.';
+  static const String addedToCart = 'Product has been added to cart';
+  static const String removeProduct = 'Remove Product';
+  static const String removeProductMessage = 'Are you sure you want to remove this product from your cart?';
+  static const String removeFromCart = 'Product has been removed from cart';
+  static const String cartEmpty = 'Your cart is empty';
+  static const String startShopping = 'Let\'s fill the cart!';
+  static const String addToCart = 'Add to Cart';
+
+
+  // Local Storage keys
+  static const String cartItems = 'CARTITEMS';
 }

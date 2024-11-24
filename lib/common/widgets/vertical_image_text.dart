@@ -10,7 +10,7 @@ class CustomVerticalImageText extends StatelessWidget {
     required this.image,
     required this.title,
     this.textColor = CustomColors.white,
-    this.backgroundColor = CustomColors.white,
+    this.backgroundColor,
     this.isNetworkImage = true,
     this.onTap,
   });
@@ -35,7 +35,7 @@ class CustomVerticalImageText extends StatelessWidget {
               fit: BoxFit.fitWidth,
               padding: CustomSizes.sm * 1.4,
               isNetworkImage: isNetworkImage,
-              backgroundColor: backgroundColor,
+              backgroundColor: backgroundColor ?? (dark ?CustomColors.dark : CustomColors.light),
               overlayColor: dark ? CustomColors.light : CustomColors.dark,
             ),
             const SizedBox(height: CustomSizes.spaceBtwItems / 2),
