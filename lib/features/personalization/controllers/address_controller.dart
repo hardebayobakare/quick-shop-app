@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:quick_shop_app/common/widgets/section_heading.dart';
 import 'package:quick_shop_app/data/repositories/address/address_repository.dart';
 import 'package:quick_shop_app/features/personalization/models/address_model.dart';
+import 'package:quick_shop_app/features/personalization/screens/address/widget/address_new.dart';
+import 'package:quick_shop_app/features/personalization/screens/address/widget/address_single.dart';
 import 'package:quick_shop_app/utils/constants/image_strings.dart';
+import 'package:quick_shop_app/utils/constants/sizes.dart';
 import 'package:quick_shop_app/utils/constants/text_strings.dart';
+import 'package:quick_shop_app/utils/helpers/cloud_helper_functions.dart';
 import 'package:quick_shop_app/utils/helpers/network_manager.dart';
 import 'package:quick_shop_app/utils/loaders/circular_loader.dart';
 import 'package:quick_shop_app/utils/popups/full_screen_loader.dart';
@@ -48,7 +53,7 @@ class AddressController extends GetxController{
 
       // clear the selected field
       if (selectedAddress.value.id.isNotEmpty) {
-        await addressRepository.updateSelectedField(address.id, false);
+        await addressRepository.updateSelectedField(selectedAddress.value.id, false);
       }
 
       // Assign selected address
@@ -130,6 +135,51 @@ class AddressController extends GetxController{
     state.clear();
     country.clear();
     addressFormKey.currentState?.reset();
+  }
+
+  Future selectNewsAddressPopup(BuildContext context) async {
+    return showModalBottomSheet(
+      context: context, 
+      builder: (_) => SingleChildScrollView(
+        child: Container(
+          padding: const EdgeInsets.all(CustomSizes.lg),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const CustomSectionHeading(title: CustomTextStrings.selectAddress, showActionButton: false),
+              FutureBuilder(
+                future: getAllUserAddresses(), 
+                builder: (_, snapshot) {
+                  final widget = CustomCloudHelperFunctions.checkMultiRecordState(snapshot: snapshot);
+                  if (widget != null) return widget;
+
+                  return ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: snapshot.data!.length,
+                    itemBuilder: (_, index) => CustomSingleAddress(
+                      address: snapshot.data![index], 
+                      onTap: () async {
+                        await selectAddress(snapshot.data![index]);
+                        Get.back();
+                      },
+                    )
+                  );
+                }
+              ),
+              
+              const SizedBox(height: CustomSizes.defaultSpace * 2),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () => Get.to(() => const AddNewAddressScreen()),
+                  child: const Text(CustomTextStrings.addNewAddress),
+                ),
+              )
+            ],
+          ),
+        )
+      )
+    );    
   }
 
 }

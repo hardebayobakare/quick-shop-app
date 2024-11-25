@@ -149,4 +149,5 @@ class CustomImages {
   static const String dataProcess = "assets/images/animations/141594-animation-of-docer.json";
   static const String addToWishlist = "assets/images/animations/Animation_1732163721763.json";
   static const String cartAnimation = "assets/images/animations/Animation_1732475218548.json";
+  static const String emptyOrders = "assets/images/animations/Animation_1732513182578.json";
 }

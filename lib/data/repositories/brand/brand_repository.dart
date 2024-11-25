@@ -52,7 +52,6 @@ class BrandRepository extends GetxController{
     } on PlatformException catch (e) {
       throw CustomPlatformException(e.code).message;
     } catch (e) {
-      print(e);
       throw CustomExceptions(e.toString());
     }
   }

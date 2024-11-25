@@ -106,6 +106,9 @@ class CustomTextStrings {
   static const String store = 'Store';
   static const String brands = 'Brands';
   static const String brand = 'Brand';
+  static const String products = 'Products';
+  static const String orders = 'Orders';
+  static const String order = 'Order';
   static const String youMightLike = 'You might like';
   static const String addToWishlist = 'Product has been added to your wishlist';
   static const String removeFromWishlist = 'Product has been removed from your wishlist';
@@ -128,6 +131,36 @@ class CustomTextStrings {
   static const String cartEmpty = 'Your cart is empty';
   static const String startShopping = 'Let\'s fill the cart!';
   static const String addToCart = 'Add to Cart';
+  static const String subtotal = 'Subtotal';
+  static const String shippingFee = 'Shipping Fee';
+  static const String shippingDate = 'Shipping Date';
+  static const String tax = 'Tax';
+  static const String orderTotal = 'Order Total';
+  static const String paymentMethod = 'Payment Method';
+  static const String change = 'Change';
+  static const String selectPaymentMethod = 'Select Payment Method';
+  static const String shippingAddress = 'Shipping Address';
+  static const String selectAddress = 'Select Address';
+  static const String userNotFound = 'User not found';
+  static const String orderPlaced = 'Order has been placed successfully';
+  static const String orderFailed = 'Order failed';
+  static const String orderFailedMessage = 'We are unable to place your order. Please try again later.';
+  static const String paymentSuccessful = 'Payment Successful';
+  static const String noOrders = 'No orders available';
+  static const String unavailable = 'Unavailable';
+
+
+
+
+  // Paymment Methods
+  static const String paypal = 'Paypal';
+  static const String creditCard = 'Credit Card';
+  static const String googlePay = 'Google Pay';
+  static const String applePay = 'Apple Pay';
+  static const String visa = 'Visa';
+  static const String masterCard = 'Master Card';
+  static const String paytm = 'Paytm';
+  static const String paystack = 'Paystack';
 
 
   // Local Storage keys
