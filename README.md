@@ -31,7 +31,6 @@ Certain assets required for the project, such as design files, images, and confi
 2. Include your email address or preferred contact method in the issue description.
 3. Specify the type of assets you need (e.g., Firebase configuration files, app icons).
 
-Alternatively, you can email your request directly to the project maintainer.
 
 ### Setting Up Firebase
 
@@ -60,15 +59,6 @@ Follow these steps to set up Firebase for the Quick Shop App:
 
 For detailed instructions, refer to the [official Firebase documentation](https://firebase.google.com/docs).
 
-## Contributing
-
-Contributions are welcome! To contribute:
-
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-3. Commit your changes with clear and concise messages.
-4. Push your changes to your fork.
-5. Submit a pull request detailing your changes.
 
 ## License
 

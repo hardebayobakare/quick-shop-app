@@ -45,7 +45,7 @@ app.*.map.json
 dummy_data.dart
 
 firebase_options.dart
-google_services.json
+google-services.json
 GoogleService-Info.plist
 
 /assets/
