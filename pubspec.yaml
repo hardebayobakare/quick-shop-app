@@ -1,5 +1,5 @@
 name: quick_shop_app
-description: "A new Flutter project."
+description: "E-Commerce App for both iOS and Android devices."
 
 publish_to: 'none' 
 version: 1.0.0+1
@@ -57,6 +57,7 @@ dev_dependencies:
     sdk: flutter
 
   flutter_lints: ^4.0.0
+  flutter_launcher_icons: "^0.14.1"
 
 
 flutter:
@@ -98,4 +99,20 @@ flutter:
           weight: 300
         - asset: assets/fonts/Poppins-SemiBold.ttf
           weight: 400
+
+#------------------APP Icon Generation-------------------#
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/logos/quick_shop_app.png"
+  min_sdk_android: 34
+  web:
+    generate: true
+    image_path: "assets/logos/quick_shop_app.png"
+    background_color: "#hexcode"
+    theme_color: "#hexcode"
+  macos:
+    generate: true
+    image_path: "assets/logos/quick_shop_app.png"
 
